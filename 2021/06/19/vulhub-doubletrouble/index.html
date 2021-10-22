@@ -12,10 +12,10 @@
     <meta name="keywords" content="Biu二狗子,Biuergouzi,"> 
     <meta name="description" content="doubletroubleVULHUB靶场实验
 实验工具：fscan：端口扫描工具
-nmap：十分好用的端口扫描工具
-攻击机：Kali Linux
-IP：192.168.12.24
-目标机：Debi,"> 
+nmap:十分好用的端口扫描工具
+攻击机:Kali Linux
+IP:192.168.12.24
+目标机:Debi,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Biuergouzi" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -66,17 +66,17 @@ IP：192.168.12.24
         <div class="content markdown">
             <h2 id="doubletrouble"><a href="#doubletrouble" class="headerlink" title="doubletrouble"></a>doubletrouble</h2><p>VULHUB靶场实验</p>
 <h2 id="实验工具："><a href="#实验工具：" class="headerlink" title="实验工具："></a>实验工具：</h2><p>fscan：端口扫描工具</p>
-<p>nmap：十分好用的端口扫描工具</p>
-<p>攻击机：<font color="red"><code>Kali Linux</code></font></p>
-<p>IP：<font color="red"><code>192.168.12.24</code></font></p>
-<p>目标机：<font color="red"><code>Debian</code></font></p>
-<p>IP：<font color="red"><code>192.168.12.158</code></font></p>
-<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h4 id="步骤1：获取目标IP地址"><a href="#步骤1：获取目标IP地址" class="headerlink" title="步骤1：获取目标IP地址"></a>步骤1：获取目标IP地址</h4><p>​    方法一：使用fscan 扫描一下ip段，获取目标ip为192.168.12.178</p>
+<p>nmap:十分好用的端口扫描工具</p>
+<p>攻击机:<font color="red"><code>Kali Linux</code></font></p>
+<p>IP:<font color="red"><code>192.168.12.24</code></font></p>
+<p>目标机:<font color="red"><code>Debian</code></font></p>
+<p>IP:<font color="red"><code>192.168.12.158</code></font></p>
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h4 id="步骤1-获取目标IP地址"><a href="#步骤1-获取目标IP地址" class="headerlink" title="步骤1:获取目标IP地址"></a>步骤1:获取目标IP地址</h4><p>​    方法一:使用fscan 扫描一下ip段，获取目标ip为192.168.12.178</p>
 <p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162158827.png" alt="image-20211022162158827"></p>
-<p>​    方法二：使用Advanced IP Scanner 扫描指定IP段内的机器</p>
+<p>​    方法二:使用Advanced IP Scanner 扫描指定IP段内的机器</p>
 <p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162138694.png" alt="image-20211022162138694"></p>
 <p>​    </p>
-<h4 id="步骤2：使用Nmap扫描目标开放端口"><a href="#步骤2：使用Nmap扫描目标开放端口" class="headerlink" title="步骤2：使用Nmap扫描目标开放端口"></a>步骤2：使用Nmap扫描目标开放端口</h4><p>​    使用nmap扫描192.168.12.158，发现开放了22、80端口</p>
+<h4 id="步骤2-使用Nmap扫描目标开放端口"><a href="#步骤2-使用Nmap扫描目标开放端口" class="headerlink" title="步骤2:使用Nmap扫描目标开放端口"></a>步骤2:使用Nmap扫描目标开放端口</h4><p>​    使用nmap扫描192.168.12.158，发现开放了22、80端口</p>
 <p>​    <code>nmap -A -p- 192.168.12.158 -oN /root/桌面/doubletrouble.txt</code></p>
 <p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022163553259.png" alt="image-20211022163553259"></p>
 <h4 id="步骤3：访问目标网站"><a href="#步骤3：访问目标网站" class="headerlink" title="步骤3：访问目标网站"></a>步骤3：访问目标网站</h4><p>​    浏览器访问192.168.12.158，发现一个Login页面</p>

