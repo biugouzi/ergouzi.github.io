@@ -79,21 +79,21 @@ IP:192.168.12.24
 <h4 id="步骤2-使用Nmap扫描目标开放端口"><a href="#步骤2-使用Nmap扫描目标开放端口" class="headerlink" title="步骤2:使用Nmap扫描目标开放端口"></a>步骤2:使用Nmap扫描目标开放端口</h4><p>​    使用nmap扫描192.168.12.158，发现开放了22、80端口</p>
 <p>​    <code>nmap -A -p- 192.168.12.158 -oN /root/桌面/doubletrouble.txt</code></p>
 <p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022163553259.png" alt="image-20211022163553259"></p>
-<h4 id="步骤3：访问目标网站"><a href="#步骤3：访问目标网站" class="headerlink" title="步骤3：访问目标网站"></a>步骤3：访问目标网站</h4><p>​    浏览器访问192.168.12.158，发现一个Login页面</p>
+<h4 id="步骤3-访问目标网站"><a href="#步骤3-访问目标网站" class="headerlink" title="步骤3:访问目标网站"></a>步骤3:访问目标网站</h4><p>​    浏览器访问192.168.12.158，发现一个Login页面</p>
 <p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022162732808.png" alt="image-20211022162732808"></p>
 <p>​    尝试了弱口令没有效果，这个页面没有办法处理，使用dirsearch扫描目录</p>
 <blockquote>
-<p>用法：dirsearch -u [域名/IP地址] -o [导出文件路径]</p>
+<p>用法:dirsearch -u [域名/IP地址] -o [导出文件路径]</p>
 </blockquote>
 <p>​    <code>dirsearch -u 192.168.12.158 -o /root/桌面/dir.txt </code></p>
 <p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191439315.png" alt="image-20211022191439315"></p>
 <p>​    使用cat命令筛选出200响应码的路径</p>
 <p>​    <code>cat dir.txt | grep 200</code></p>
 <p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022191555234.png" alt="image-20211022191555234"></p>
-<h4 id="步骤4：利用stegseek图片解密"><a href="#步骤4：利用stegseek图片解密" class="headerlink" title="步骤4：利用stegseek图片解密"></a>步骤4：利用stegseek图片解密</h4><p>​    在/secret/目录中有个比较奇怪的图片，将它保存到本地<img src="/2021/06/19/vulhub-doubletrouble/image-20211022191657862.png" alt="image-20211022191657862"></p>
+<h4 id="步骤4-利用stegseek图片解密"><a href="#步骤4-利用stegseek图片解密" class="headerlink" title="步骤4:利用stegseek图片解密"></a>步骤4:利用stegseek图片解密</h4><p>​    在/secret/目录中有个比较奇怪的图片，将它保存到本地<img src="/2021/06/19/vulhub-doubletrouble/image-20211022191657862.png" alt="image-20211022191657862"></p>
 <p>​    使用stegseek对图片进行解密</p>
 <blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github：https://github.com/RickdeJager/stegseek/releases</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">github:https://github.com/RickdeJager/stegseek/releases</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>​    kali自带了rockyou.txt，但是需要解压一下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gunzip /usr/share/wordlists/rockyou.txt.gz</span><br><span class="line">sudo stegseek ./doubletrouble.jpg /usr/share/wordlists/rockyou.txt</span><br></pre></td></tr></table></figure>
@@ -140,7 +140,7 @@ tis666   `
 <p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202817305.png" alt="image-20211022202817305"></p>
 <p>​    导入后扫描一下ip</p>
 <blockquote>
-<p>目标IP地址：192.168.12.58</p>
+<p>目标IP地:192.168.12.58</p>
 </blockquote>
 <p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022205106315.png" alt="image-20211022205106315"></p>
 <p>​    使用nmap扫描一下开放端口</p>
