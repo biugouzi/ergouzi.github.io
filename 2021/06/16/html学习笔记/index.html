@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HTML学习总结 - Biuergouzi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Biu二狗子,Biuergouzi,"> 
+    <meta name="description" content="HTML   超文本标记语言
+    HTML是一种用于创建网页的标准标记语言。
+
+   您可以使用 HTML 来建立自己的 WEB 站点，HTML 运行在浏览器上，由浏览器来解析。
+
+《!– mo,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Biuergouzi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<head>
+ <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+ <script src="/live2d-widget/autoload.js"></script>
+</head>
+<body class="loading">
+    <span id="config-title" style="display:none">Biuergouzi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">HTML学习总结</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">HTML学习总结</h1>
+        <div class="stuff">
+            <span>六月 16, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/HTML/" rel="tag">HTML</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>HTML   超文本标记语言</p>
+<pre><code>    HTML是一种用于创建网页的标准标记语言。
+
+   您可以使用 HTML 来建立自己的 WEB 站点，HTML 运行在浏览器上，由浏览器来解析。
+</code></pre>
+<p>《!– more –》</p>
+<p>HTML head 元素</p>
+<pre><code>    《head》 元素包含了所有的头部标签元素。在 《head》元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。
+
+    可以添加在头部区域的元素标签为: 《title》, 《style》, 《meta》, 《link》, 《script》, 《noscript》 和 《base》。
+</code></pre>
+<p>HTML title 元素</p>
+<pre><code>《title》 标签定义了不同文档的标题。
+《title》 在 HTML/XHTML 文档中是必须的。
+</code></pre>
+<ul>
+<li>定义了浏览器工具栏的标题</li>
+<li>当网页添加到收藏夹时，显示在收藏夹中的标题</li>
+<li>显示在搜索引擎结果页面的标题</li>
+</ul>
+<p>HTML《meta》元素</p>
+<p>meta标签描述了一些基本的元数据。</p>
+<p>《meta》 标签提供了元数据.元数据也不显示在页面上，但会被浏览器解析。</p>
+<p>META 元素通常用于指定网页的描述，关键词，文件的最后修改时间，作者，和其他元数据。</p>
+<p>元数据可以使用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他Web服务。</p>
+<p>《meta》一般放置于《head》区域</p>
+<p>为搜索引擎定义关键词:</p>
+<pre><code>《meta name=&quot;keywords&quot; content=&quot;HTML, CSS, XML, XHTML, JavaScript&quot;》
+</code></pre>
+<p>为网页定义描述内容:</p>
+<pre><code>《meta name=&quot;description&quot; content=&quot;免费 Web &amp; 编程 教程&quot;》
+</code></pre>
+<p>定义网页作者:</p>
+<pre><code>《meta name=&quot;author&quot; content=&quot;Runoob&quot;》
+</code></pre>
+<p>每30秒钟刷新当前页面:</p>
+<pre><code>《meta http-equiv=&quot;refresh&quot; content=&quot;30&quot;》
+
+《!DOCTYPE html
+《html》
+    《!-- 头部标签 --》
+   《head》
+       《meta charset=&quot;utf-8&quot;》 
+       《!--描述了文档的标题--》
+       《title》HTML《/title》
+   《/head》
+    《!-- 页面标签 --》
+    《body》
+        
+    《/body》   
+《/html》
+</code></pre>
+<p>HTML 标题</p>
+<p>HTML 标题（Heading）是通过《h1》 - 《h6》 标签来定义的。</p>
+<pre><code>《h1》
+    这是一个一级标题
+《/h1》
+《h2》
+    这是一个二级标题
+《/h2》   
+《h3》
+    这是一个三级标题
+《/h3》    
+</code></pre>
+<p>HTML 段落</p>
+<p>HTML 段落是通过标签 《p》 来定义的。</p>
+<pre><code>《p》这是一个段落。《/p》
+</code></pre>
+<p>HTML 链接</p>
+<p>HTML 链接是通过标签 《a》 来定义的。</p>
+<p>使用 target 属性，你可以定义被链接的文档在何处显示。</p>
+<p>href=”这是路径”。</p>
+<pre><code>《a href=&quot;https://www.feixiangzai98.com&quot; target=&quot;_blank&quot;》这是一个链接《/a》
+</code></pre>
+<p>HTML 图像</p>
+<p>HTML 图像是通过标签 《img》 来定义的.</p>
+<p>src=”这里是路径”，width=”258”,height=”39”,这两个属性是设置图片属性。</p>
+<p>alt 属性用来为图像定义一串预备的可替换的文本。</p>
+<p>替换文本属性的值是用户定义的。</p>
+<pre><code>《img loading=&quot;lazy&quot; src=&quot;/images/logo.png&quot; width=&quot;258&quot; height=&quot;39&quot; alt=&quot;this picture&quot;/》
+</code></pre>
+<p>HTML 换行</p>
+<pre><code>《/br》
+</code></pre>
+<p>HTML 水平线</p>
+<pre><code>《/hr》
+</code></pre>
+<p>HTML 注释</p>
+<pre><code>《!-- 这是一个注释  --》
+</code></pre>
+<p>HTML 《link》元素</p>
+<p>《link》 标签定义了文档与外部资源之间的关系。</p>
+<p>《link》 标签通常用于链接到样式表:</p>
+<pre><code>《head》
+《link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot;》
+《/head》
+</code></pre>
+<p>HTML 《style》 元素</p>
+<p>《style》 标签定义了HTML文档的样式文件引用地址.<br>在《style》 元素中你也可以直接添加样式来渲染 HTML 文档</p>
+<pre><code>《head》
+《style type=&quot;text/css&quot;》
+body &#123;background-color:yellow&#125;
+p &#123;color:blue&#125;
+《/style》
+《/head》
+</code></pre>
+<p>HTML 《script》 元素</p>
+<p>《script》标签用于加载脚本文件，如： JavaScript。</p>
+<p>《script》 元素在以后的章节中会详细描述。</p>
+<pre><code>《script src=&quot;引用位置&quot;》《/script》
+</code></pre>
+<p>HTML 表格</p>
+<pre><code>《!-- 这定义了一个表格 --》
+《table border=&quot;1&quot;》
+    《!-- 表格的行 --》
+   《tr》
+       《th》表格的表头《/th》
+    《/tr》
+    《tr》
+        《td》表格的单元格《/td》
+    《/tr》
+</code></pre>
+<p>​<br>​<br>​    《/table》</p>
+<p>HTML 列表</p>
+<p>HTML无序列表</p>
+<p>无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。</p>
+<p>无序列表使用 《ul》 标签</p>
+<pre><code>《ul》
+《li》Coffee《/li》
+《li》Milk《/li》
+《/ul》
+</code></pre>
+<p>HTML 有序列表</p>
+<pre><code>    同样，有序列表也是一列项目，列表项目使用数字进行标记。 有序列表始于 《ol》 标签。每个列表项始于 《li》 标签。
+</code></pre>
+<p>列表项使用数字来标记。</p>
+<pre><code>《ol》
+《li》Coffee《/li》
+《li》Milk《/li》
+《/ol》
+</code></pre>
+<p>HTML 区块元素</p>
+<p>HTML 《div》 元素</p>
+<p>HTML 《div》 元素是块级元素，它可用于组合其他 HTML 元素的容器。</p>
+<div> 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。
+
+<p>如果与 CSS 一同使用，《div》 元素可用于对大的内容块设置样式属性。</p>
+<pre><code>《div》
+</code></pre>
+<p>​<br>​    《/div》</p>
+<p>HTML 《span》 元素</p>
+<p>HTML 《span》 元素是内联元素，可用作文本的容器</p>
+<p>《span》 元素也没有特定的含义。</p>
+<p>当与 CSS 一同使用时，《span》 元素可用于为部分文本设置样式属性。</p>
+<pre><code>《span》   《/span》
+</code></pre>
+<p>实例</p>
+<pre><code>《!DOCTYPE html》
+《html》
+《head》 
+《meta charset=&quot;utf-8&quot;》 
+《title》feiixang(runoob.com)《/title》 
+《/head》
+《body》
+ 
+《div id=&quot;container&quot; style=&quot;width:500px&quot;》
+ 
+《div id=&quot;header&quot; style=&quot;background-color:#FFA500;&quot;》
+《h1 style=&quot;margin-bottom:0;&quot;》主要的网页标题《/h1》《/div》
+ 
+《div id=&quot;menu&quot; style=&quot;background-color:#FFD700;height:200px;width:100px;float:left;&quot;》
+《b》菜单《/b》《br》
+HTML《br》
+CSS《br》
+JavaScript《/div》
+ 
+《div id=&quot;content&quot; style=&quot;background-color:#EEEEEE;height:200px;width:400px;float:left;&quot;》
+内容在这里《/div》
+ 
+《div id=&quot;footer&quot; style=&quot;background-color:#FFA500;clear:both;text-align:center;&quot;》
+版权 © runoob.com《/div》
+ 
+《/div》
+ 
+《/body》
+《/html》
+</code></pre>
+<p>HTML 表单</p>
+<p>表单是一个包含表单元素的区域。</p>
+<p>表单元素是允许用户在表单中输入内容,比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等。</p>
+<p>表单使用表单标签 《form》 来设置:</p>
+<pre><code>《form》
+.
+input 元素
+.
+《/form》
+</code></pre>
+<p>HTML 表单 - 输入元素</p>
+<p>多数情况下被用到的表单标签是输入标签（《input》）。</p>
+<p>输入类型是由类型属性（type）定义的。大多数经常被用到的输入类型如下：</p>
+<p>文本域（Text Fields）</p>
+<pre><code>    文本域通过《input type=&quot;text&quot;》 标签来设定，当用户要在表单中键入字母、数字等内容时，就会用到文本域。
+
+《form》
+First name: 《input type=&quot;text&quot; name=&quot;firstname&quot;》《br》
+Last name: 《input type=&quot;text&quot; name=&quot;lastname&quot;》
+《/form》
+</code></pre>
+<p>密码字段</p>
+<p>密码字段通过标签《input type=”password”》 来定义:</p>
+<pre><code>《form》
+Password: 《input type=&quot;password&quot; name=&quot;pwd&quot;》
+《/form》
+</code></pre>
+<p>单选按钮（Radio Buttons）</p>
+<p>《input type=”radio”》 标签定义了表单单选框选项</p>
+<pre><code>《form》
+《input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot;》Male《br》
+《input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;》Female
+《/form》
+</code></pre>
+<p>复选框（Checkboxes）</p>
+<p>《input type=”checkbox”》 定义了复选框. 用户需要从若干给定的选择中选取一个或若干选项。</p>
+<pre><code>《form》
+《input type=&quot;checkbox&quot; name=&quot;vehicle&quot; value=&quot;Bike&quot;》I have a bike《br》
+《input type=&quot;checkbox&quot; name=&quot;vehicle&quot; value=&quot;Car&quot;》I have a car
+《/form》
+</code></pre>
+<p>提交按钮(Submit Button)</p>
+<p>《input type=”submit”》 定义了提交按钮.</p>
+<p>当用户单击确认按钮时，表单的内容会被传送到另一个文件。表单的动作属性定义了目的文件的文件名。由动作属性定义的这个文件通常会对接收到的输入数据进行相关的处理。</p>
+<pre><code>《form name=&quot;input&quot; action=&quot;html_form_action.php&quot; method=&quot;get&quot;》
+Username: 《input type=&quot;text&quot; name=&quot;user&quot;》
+《input type=&quot;submit&quot; value=&quot;Submit&quot;》
+《/form》
+</code></pre>
+</div>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='true'
+        data-ci='c8c3875ab87d4117ae73'
+        data-cs='a7b363eaa6f5d6972c59c58193d5a30a655be096'
+        data-r='ergouzi'
+        data-o='Biuergouzi'
+        data-a='Biuergouzi'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

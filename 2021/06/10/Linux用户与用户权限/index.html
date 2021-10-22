@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Linux用户与用户权限 - Biuergouzi</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Biu二狗子,Biuergouzi,"> 
+    <meta name="description" content="###用户命令useradd [用户名] //创建用户，同时创建用户组useradd -G [已存在的组] [用户名]  //创建一个用户并加入一个已存在的组useradd [用户名] -s [命令,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Biuergouzi" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<head>
+ <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+ <script src="/live2d-widget/autoload.js"></script>
+</head>
+<body class="loading">
+    <span id="config-title" style="display:none">Biuergouzi</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">Linux用户与用户权限</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Linux用户与用户权限</h1>
+        <div class="stuff">
+            <span>六月 10, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%9F%BA%E7%A1%80/" rel="tag">基础</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="用户命令"><a href="#用户命令" class="headerlink" title="###用户命令"></a>###用户命令</h2><p>useradd [用户名] //创建用户，同时创建用户组<br>useradd -G [已存在的组] [用户名]  //创建一个用户并加入一个已存在的组<br>useradd [用户名] -s [命令目录]  //手动指定用户登录后使用的shell<br>useradd -M  //创建用户时 不创建用户目录<br>useradd -N  //创建用户时 不创建用户组<br>usermod -g [用户组] [用户名]  //修改用户所在的主要组<br>usermod -G [用户组] [用户名]  //修改用户所在的副要组<br>usermod -l [新用户名] [旧用户名] //修改用户名<br>usermod -L [用户名] //锁一个用户 使其不能使用login登录 但可以在root用户下使用su登录<br>usermod -e [用户名] //修改用户登录有效期<br>usermod -s [shell] //修改用户登录后使用的shell,usermod -s /sbin/nologin 此命令可使账户无法登录<br>usermod -u [uid] //修改用户uid<br>userdel [用户名] //删除一个用户，但不会删除用户目录<br>userdel -r [用户名] //删除用户所有东西，包括用户目录</p>
+<h2 id="用户组命令"><a href="#用户组命令" class="headerlink" title="###用户组命令"></a>###用户组命令</h2><p>groupadd [组名] 创建用户组<br>groupadd -g [组编号] [组名] //创建用户组同时指定编号<br>groupmod -n [新组名] [旧组名] //修改用户组的组名<br>groupmod -g [组编号] [组名] //修改用户组的组编号<br>groupdel [组名] //删除指定用户组</p>
+<h2 id="用户权限命令"><a href="#用户权限命令" class="headerlink" title="###用户权限命令"></a>###用户权限命令</h2><p>权限说明：<br>ls -al 查看当前目录所有文件/文件夹权限</p>
+<p>r=读;  r=4  //读权限使文件可被读，例cat、more命令<br>w=写; w=2 //写权限使文件/文件夹可被改写,例echo、mv、vi等命令<br>x=执行;x=1 //执行权限使文件可被执行或者文件夹进入，例cd命令</p>
+<p>权限：rwx rwx rwx<br>分为三组 一组为三个<br>第一组：用户权限  第一组英文字母为u<br>第二组：用户组权限 第二组英文字母为g<br>第三组：其他用户权限 第三组英文字母为o<br>英文字母a代表all 表示三组全选</p>
+<p>Chmod命令：<br>chmod 755 a //修改a文件的权限为755=rwx r-x r-x<br>chmod a+x a //修改a文件中的所有权限 加上执行权限<br>chmod -r //递归修改权限</p>
+<p>chown命令：<br>chown root: root a //修改a文件的用户权限以及用户组权限为root<br>chown root: zhangsan a //修改a文件的用户权限为root,用户组权限为zhangsan<br>chown : root a //只修改a文件的用户组为root<br>chown -r  //递归修改</p>
+<p>各个信息代表的含义图解：</p>
+<p><img src="/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/image-20210619193139915.png" alt="image-20210619193139915"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='true'
+        data-ci='c8c3875ab87d4117ae73'
+        data-cs='a7b363eaa6f5d6972c59c58193d5a30a655be096'
+        data-r='ergouzi'
+        data-o='Biuergouzi'
+        data-a='Biuergouzi'
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

